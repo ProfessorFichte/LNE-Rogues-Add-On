@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "lne_rogues",
+	"version": "${version}",
+	"name": "lne_rogues",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/lne_rogues/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+          "com.lne_rogues.LNE_Rogues_Mod"
+		],
+		"fabric-datagen": [
+			"com.lne_rogues.Lne_roguesDataGenerator"
+		]
+	},
+	"mixins": [
+		"lne_rogues.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.9",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

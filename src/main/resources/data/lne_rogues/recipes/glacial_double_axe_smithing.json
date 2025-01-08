@@ -1,0 +1,23 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "loot_n_explore"
+      ]
+    }
+  ],
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "loot_n_explore:frozen_soul"
+  },
+  "base": {
+    "item": "rogues:netherite_double_axe"
+  },
+  "result": {
+    "item": "lne_rogues:glacial_double_axe"
+  },
+  "template": {
+    "item": "loot_n_explore:frostmonarch_upgrade_smithing_template"
+  }
+}
