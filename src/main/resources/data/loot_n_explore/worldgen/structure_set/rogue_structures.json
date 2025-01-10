@@ -1,0 +1,39 @@
+{
+  "placement": {
+    "exclusion_zone": {
+      "other_set": [
+        "minecraft:villages",
+        "loot_n_explore:archers_structures",
+        "loot_n_explore:wizards_structures",
+        "loot_n_explore:paladins_structures"
+      ],
+      "chunk_count": 20
+    },
+    "type": "minecraft:random_spread",
+    "salt": 12327675,
+    "separation": 15,
+    "spacing": 40
+  },
+  "structures": [
+    {
+      "structure": "loot_n_explore:rogue_desert_treasure",
+      "weight": 5
+    },
+    {
+      "structure": "loot_n_explore:rogue_badlands_treasure",
+      "weight": 5
+    },
+    {
+      "structure": "loot_n_explore:warrior_outpost",
+      "weight": 5
+    },
+    {
+      "structure": "loot_n_explore:warrior_turret",
+      "weight": 3
+    },
+    {
+      "structure": "loot_n_explore:rogue_hideout",
+      "weight": 3
+    }
+  ]
+}
