@@ -7,17 +7,6 @@
         {
           "type": "item",
           "name": "rogues:rogue_spell_book",
-          "weight": 3,
-          "functions": [
-            {
-              "function": "set_nbt",
-              "tag": "{spell_container:{pool:\"rogues:rogue\",spell_ids:[\"rogues:slice_and_dice\"],spell_container:\"MAGIC\"}}"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "name": "rogues:rogue_spell_book",
           "weight": 2,
           "functions": [
             {

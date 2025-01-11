@@ -11,7 +11,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "rogues:iron_dagger",
+          "name": "rogues:diamond_dagger",
           "weight": 1,
           "functions": [
             {
@@ -28,7 +28,7 @@
               "conditions": [
                 {
                   "condition": "random_chance",
-                  "chance": 0.4
+                  "chance": 0.5
                 }
               ]
             }
@@ -36,7 +36,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "rogues:iron_sickle",
+          "name": "rogues:diamond_sickle",
           "weight": 1,
           "functions": [
             {
@@ -53,7 +53,7 @@
               "conditions": [
                 {
                   "condition": "random_chance",
-                  "chance": 0.4
+                  "chance": 0.5
                 }
               ]
             }
@@ -105,7 +105,7 @@
 
         {
           "type": "minecraft:item",
-          "name": "rogues:rogue_armor_head",
+          "name": "rogues:assassin_armor_head",
           "weight": 1,
           "functions": [
             {
@@ -122,7 +122,7 @@
               "conditions": [
                 {
                   "condition": "random_chance",
-                  "chance": 0.4
+                  "chance": 0.5
                 }
               ]
             }
@@ -130,7 +130,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "rogues:rogue_armor_chest",
+          "name": "rogues:assassin_armor_chest",
           "weight": 1,
           "functions": [
             {
@@ -147,7 +147,7 @@
               "conditions": [
                 {
                   "condition": "random_chance",
-                  "chance": 0.4
+                  "chance": 0.5
                 }
               ]
             }
@@ -155,7 +155,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "rogues:rogue_armor_legs",
+          "name": "rogues:assassin_armor_legs",
           "weight": 1,
           "functions": [
             {
@@ -172,7 +172,7 @@
               "conditions": [
                 {
                   "condition": "random_chance",
-                  "chance": 0.4
+                  "chance": 0.5
                 }
               ]
             }
@@ -180,7 +180,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "rogues:rogue_armor_feet",
+          "name": "rogues:assassin_armor_feet",
           "weight": 1,
           "functions": [
             {
@@ -197,7 +197,7 @@
               "conditions": [
                 {
                   "condition": "random_chance",
-                  "chance": 0.4
+                  "chance": 0.5
                 }
               ]
             }
