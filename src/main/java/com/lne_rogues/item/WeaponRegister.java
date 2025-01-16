@@ -12,6 +12,7 @@ import net.minecraft.item.ToolMaterials;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 import net.more_rpg_classes.custom.MoreSpellSchools;
 import net.spell_engine.api.item.ItemConfig;
 import net.spell_engine.api.item.weapon.Weapon;
@@ -68,6 +69,7 @@ public class WeaponRegister {
     }
     private static Weapon.Entry daggerDragon(String requiredMod, String name, Weapon.CustomMaterial material) {
         var settings = new Item.Settings();
+        settings = settings.rarity(Rarity.EPIC).fireproof();
         var item = new DragonRogue(material, settings);
         return entry(requiredMod, name, material, item, new ItemConfig.Weapon(daggerAttackDamage, rogues_daggerAttackSpeed));
     }
@@ -76,6 +78,7 @@ public class WeaponRegister {
     }
     private static Weapon.Entry daggerElderGuardian(String requiredMod, String name, Weapon.CustomMaterial material) {
         var settings = new Item.Settings();
+        settings = settings.rarity(Rarity.EPIC).fireproof();
         var item = new ElderGuardianRogue(material, settings);
         return entry(requiredMod, name, material, item, new ItemConfig.Weapon(daggerAttackDamage, rogues_daggerAttackSpeed));
     }
@@ -84,6 +87,7 @@ public class WeaponRegister {
     }
     private static Weapon.Entry daggerWither(String requiredMod, String name, Weapon.CustomMaterial material) {
         var settings = new Item.Settings();
+        settings = settings.rarity(Rarity.EPIC).fireproof();
         var item = new WitherRogue(material, settings);
         return entry(requiredMod, name, material, item, new ItemConfig.Weapon(daggerAttackDamage, rogues_daggerAttackSpeed));
     }
@@ -92,6 +96,7 @@ public class WeaponRegister {
     }
     private static Weapon.Entry daggerGlacial(String requiredMod, String name, Weapon.CustomMaterial material) {
         var settings = new Item.Settings();
+        settings = settings.rarity(Rarity.EPIC).fireproof();
         var item = new GlacialRogue(material, settings);
         return entry(requiredMod, name, material, item, new ItemConfig.Weapon(daggerAttackDamage, rogues_daggerAttackSpeed));
     }
@@ -103,6 +108,7 @@ public class WeaponRegister {
     }
     private static Weapon.Entry sickleDragon(String requiredMod, String name, Weapon.CustomMaterial material) {
         var settings = new Item.Settings();
+        settings = settings.rarity(Rarity.EPIC).fireproof();
         var item = new DragonRogue(material, settings);
         return entry(requiredMod, name, material, item, new ItemConfig.Weapon(sickleAttackDamage, rogues_sickleAttackSpeed));
     }
@@ -111,6 +117,7 @@ public class WeaponRegister {
     }
     private static Weapon.Entry sickleElderGuardian(String requiredMod, String name, Weapon.CustomMaterial material) {
         var settings = new Item.Settings();
+        settings = settings.rarity(Rarity.EPIC).fireproof();
         var item = new ElderGuardianRogue(material, settings);
         return entry(requiredMod, name, material, item, new ItemConfig.Weapon(sickleAttackDamage, rogues_sickleAttackSpeed));
     }
@@ -119,6 +126,7 @@ public class WeaponRegister {
     }
     private static Weapon.Entry sickleWither(String requiredMod, String name, Weapon.CustomMaterial material) {
         var settings = new Item.Settings();
+        settings = settings.rarity(Rarity.EPIC).fireproof();
         var item = new WitherRogue(material, settings);
         return entry(requiredMod, name, material, item, new ItemConfig.Weapon(sickleAttackDamage, rogues_sickleAttackSpeed));
     }
@@ -127,6 +135,7 @@ public class WeaponRegister {
     }
     private static Weapon.Entry sickleGlacial(String requiredMod, String name, Weapon.CustomMaterial material) {
         var settings = new Item.Settings();
+        settings = settings.rarity(Rarity.EPIC).fireproof();
         var item = new GlacialRogue(material, settings);
         return entry(requiredMod, name, material, item, new ItemConfig.Weapon(sickleAttackDamage, rogues_sickleAttackSpeed));
     }
@@ -138,6 +147,7 @@ public class WeaponRegister {
     }
     private static Weapon.Entry glaiveDragon(String requiredMod, String name, Weapon.CustomMaterial material) {
         var settings = new Item.Settings();
+        settings = settings.rarity(Rarity.EPIC).fireproof();
         var item = new DragonRogue(material, settings);
         return entry(requiredMod, name, material, item, new ItemConfig.Weapon(glaiveAttackDamage, rogues_glaiveAttackSpeed));
     }
@@ -146,6 +156,7 @@ public class WeaponRegister {
     }
     private static Weapon.Entry glaiveElderGuardian(String requiredMod, String name, Weapon.CustomMaterial material) {
         var settings = new Item.Settings();
+        settings = settings.rarity(Rarity.EPIC).fireproof();
         var item = new ElderGuardianRogue(material, settings);
         return entry(requiredMod, name, material, item, new ItemConfig.Weapon(glaiveAttackDamage, rogues_glaiveAttackSpeed));
     }
@@ -154,6 +165,7 @@ public class WeaponRegister {
     }
     private static Weapon.Entry glaiveWither(String requiredMod, String name, Weapon.CustomMaterial material) {
         var settings = new Item.Settings();
+        settings = settings.rarity(Rarity.EPIC).fireproof();
         var item = new WitherRogue(material, settings);
         return entry(requiredMod, name, material, item, new ItemConfig.Weapon(glaiveAttackDamage, rogues_glaiveAttackSpeed));
     }
@@ -162,6 +174,7 @@ public class WeaponRegister {
     }
     private static Weapon.Entry glaiveGlacial(String requiredMod, String name, Weapon.CustomMaterial material) {
         var settings = new Item.Settings();
+        settings = settings.rarity(Rarity.EPIC).fireproof();
         var item = new GlacialRogue(material, settings);
         return entry(requiredMod, name, material, item, new ItemConfig.Weapon(glaiveAttackDamage, rogues_glaiveAttackSpeed));
     }
@@ -173,6 +186,7 @@ public class WeaponRegister {
     }
     private static Weapon.Entry doubleAxeDragon(String requiredMod, String name, Weapon.CustomMaterial material) {
         var settings = new Item.Settings();
+        settings = settings.rarity(Rarity.EPIC).fireproof();
         var item = new DragonRogue(material, settings);
         return entry(requiredMod, name, material, item, new ItemConfig.Weapon(doubleAxeAttackDamage, rogues_doubleAxeAttackSpeed));
     }
@@ -181,6 +195,7 @@ public class WeaponRegister {
     }
     private static Weapon.Entry doubleAxeElderGuardian(String requiredMod, String name, Weapon.CustomMaterial material) {
         var settings = new Item.Settings();
+        settings = settings.rarity(Rarity.EPIC).fireproof();
         var item = new ElderGuardianRogue(material, settings);
         return entry(requiredMod, name, material, item, new ItemConfig.Weapon(doubleAxeAttackDamage, rogues_doubleAxeAttackSpeed));
     }
@@ -189,6 +204,7 @@ public class WeaponRegister {
     }
     private static Weapon.Entry doubleAxeWither(String requiredMod, String name, Weapon.CustomMaterial material) {
         var settings = new Item.Settings();
+        settings = settings.rarity(Rarity.EPIC).fireproof();
         var item = new WitherRogue(material, settings);
         return entry(requiredMod, name, material, item, new ItemConfig.Weapon(doubleAxeAttackDamage, rogues_doubleAxeAttackSpeed));
     }
@@ -197,6 +213,7 @@ public class WeaponRegister {
     }
     private static Weapon.Entry doubleAxeGlacial(String requiredMod, String name, Weapon.CustomMaterial material) {
         var settings = new Item.Settings();
+        settings = settings.rarity(Rarity.EPIC).fireproof();
         var item = new GlacialRogue(material, settings);
         return entry(requiredMod, name, material, item, new ItemConfig.Weapon(doubleAxeAttackDamage, rogues_doubleAxeAttackSpeed));
     }
