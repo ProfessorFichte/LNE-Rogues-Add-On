@@ -14,7 +14,7 @@ public class LNE_Rogues_Mod implements ModInitializer {
 	public static final String MOD_ID = "lne_rogues";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	public static ConfigManager<ItemConfig> itemConfig = new ConfigManager<>
-			("items", Default.itemConfig)
+			("items_v1", Default.itemConfig)
 			.builder()
 			.setDirectory(MOD_ID)
 			.sanitize(true)

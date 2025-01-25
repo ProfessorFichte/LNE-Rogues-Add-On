@@ -63,7 +63,7 @@ public class WeaponRegister {
 
     private static final float weaponSpellPower = 3.0F;
     //DAGGER
-    private static final float daggerAttackDamage = 4.7F;
+    private static final float daggerAttackDamage = 5.1F;
     private static Weapon.Entry daggerDragon(String name, Weapon.CustomMaterial material) {
         return daggerDragon(null, name, material);
     }
@@ -102,7 +102,7 @@ public class WeaponRegister {
     }
 
     //SICKLE
-    private static final float sickleAttackDamage = 5.9F;
+    private static final float sickleAttackDamage = 6.4F;
     private static Weapon.Entry sickleDragon(String name, Weapon.CustomMaterial material) {
         return sickleDragon(null, name, material);
     }
@@ -141,7 +141,7 @@ public class WeaponRegister {
     }
 
     //GLAIVE
-    private static final float glaiveAttackDamage = 8.1F;
+    private static final float glaiveAttackDamage = 8.7F;
     private static Weapon.Entry glaiveDragon(String name, Weapon.CustomMaterial material) {
         return glaiveDragon(null, name, material);
     }
@@ -180,7 +180,7 @@ public class WeaponRegister {
     }
 
     //DOUBLE AXE
-    private static final float doubleAxeAttackDamage = 9.6F;
+    private static final float doubleAxeAttackDamage = 10.3F;
     private static Weapon.Entry doubleAxeDragon(String name, Weapon.CustomMaterial material) {
         return doubleAxeDragon(null, name, material);
     }
