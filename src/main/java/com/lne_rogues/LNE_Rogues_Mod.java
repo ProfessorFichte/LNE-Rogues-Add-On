@@ -1,6 +1,7 @@
 package com.lne_rogues;
 
 import com.lne_rogues.config.Default;
+import com.lne_rogues.effect.Effects;
 import com.lne_rogues.item.WeaponRegister;
 import net.fabricmc.api.ModInitializer;
 import com.lne_rogues.config.TweaksConfig;
@@ -29,6 +30,7 @@ public class LNE_Rogues_Mod implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		tweaksConfig.refresh();
+		Effects.register();
 		if(FabricLoader.getInstance().isModLoaded("loot_n_explore")) {
 			itemConfig.refresh();
 			WeaponRegister.register(itemConfig.value.weapons);
