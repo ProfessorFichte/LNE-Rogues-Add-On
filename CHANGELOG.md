@@ -1,3 +1,6 @@
+# 0.1.3 - 1.20.1
+- fixed expert_rogue spell book loot table: dagger_throw -> dancing_dagger
+
 # 0.1.2 - 1.20.1
 - added 2 new simple spells: Warrior: Second Wind Rogue: Dancing Dagger
 - these additional spells can be found in warrior and rogue related loot chests
