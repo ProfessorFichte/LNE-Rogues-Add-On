@@ -1,3 +1,6 @@
+# 0.1.4 - 1.20.1
+- fix second wind format error
+
 # 0.1.3 - 1.20.1
 - fixed expert_rogue spell book loot table: dagger_throw -> dancing_dagger
 
