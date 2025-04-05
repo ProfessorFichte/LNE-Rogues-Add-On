@@ -1,3 +1,7 @@
+# 0.1.5 - 1.20.1
+- update item textures
+- add dancing dagger projectile model
+
 # 0.1.4 - 1.20.1
 - fix second wind format error
 
