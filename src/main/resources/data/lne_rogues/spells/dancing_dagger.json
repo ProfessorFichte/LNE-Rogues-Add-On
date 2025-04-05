@@ -26,11 +26,11 @@
           "client_data": {
             "travel_particles": [ ],
             "model": {
-              "use_held_item": true,
+              "model_id": "lne_rogues:projectile/dancing_dagger",
               "light_emission": "NONE",
-              "rotate_degrees_per_tick": 65.0,
+              "rotate_degrees_per_tick": -36.0,
               "scale": 1,
-              "orientation": "ALONG_MOTION"
+              "orientation": "TOWARDS_MOTION"
             }
           },
           "travel_sound_interval": 8,

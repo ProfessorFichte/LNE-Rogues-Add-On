@@ -17,6 +17,9 @@
 		"main": [
           "com.lne_rogues.LNE_Rogues_Mod"
 		],
+		"client": [
+			"com.lne_rogues.client.LNE_Rogues_Client"
+		],
 		"fabric-datagen": [
 			"com.lne_rogues.Lne_roguesDataGenerator"
 		]
