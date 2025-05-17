@@ -19,11 +19,14 @@
   "item.lne_rogues.glacial_glaive": "Frozen Fang",
   "item.lne_rogues.glacial_double_axe": "Glacial Cleaver",
 
-  "spell.lne_rogues.second_wind.name": "§5Second Wind",
-  "spell.lne_rogues.second_wind.description": "For {effect_duration} seconds you can recover 10-35%% of your missing health every 2 seconds. Gain 20%% of your max health as absorption hearts.",
+  "spell.lne_rogues.second_wind.name": "Second Wind",
+  "spell.lne_rogues.second_wind.description": "For {effect_duration} seconds you recover 10-35%% of your missing health every 2 seconds. Gain 20%% of your max health as absorption hearts.",
   "effect.lne_rogues.second_wind": "Second Wind",
   "effect.lne_rogues.second_wind.description": "When applied, gain 20% of your max health as absorption. You can recover 10-35% of your missing health every 2 seconds.",
 
-  "spell.lne_rogues.dancing_dagger.name": "§5Dancing Dagger",
-  "spell.lne_rogues.dancing_dagger.description": "Throw your weapon at the target, dealing {damage} damage. Your weapon can ricochet {ricochet} times."
+  "spell.lne_rogues.dancing_dagger.name": "Dancing Dagger",
+  "spell.lne_rogues.dancing_dagger.description": "Throws a dancing dagger, which can ricochet {ricochet} times and deals {damage} damage.",
+
+  "item.rogues.rogue.treasure_spell_scroll": "Treasure Rogue Skill Scroll",
+  "item.rogues.warrior.treasure_spell_scroll": "Treasure Warriors Skill Scroll"
 }

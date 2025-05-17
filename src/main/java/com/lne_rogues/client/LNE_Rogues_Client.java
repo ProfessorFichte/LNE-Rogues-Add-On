@@ -16,7 +16,7 @@ public class LNE_Rogues_Client implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         CustomModels.registerModelIds(List.of(
-                new Identifier(MOD_ID, "projectile/dancing_dagger")
+                Identifier.of(MOD_ID, "projectile/dancing_dagger")
         ));
     }
 }

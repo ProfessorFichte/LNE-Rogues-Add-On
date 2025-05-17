@@ -1,0 +1,20 @@
+{
+  "values": [
+    {
+      "id": "lne_rogues:ender_dragon_dagger",
+      "required": false
+    },
+    {
+      "id": "lne_rogues:elder_guardian_dagger",
+      "required": false
+    },
+    {
+      "id": "lne_rogues:wither_dagger",
+      "required": false
+    },
+    {
+      "id": "lne_rogues:glacial_dagger",
+      "required": false
+    }
+  ]
+}

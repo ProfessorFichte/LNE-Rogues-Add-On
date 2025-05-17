@@ -1,0 +1,20 @@
+{
+  "values": [
+    {
+      "id": "lne_rogues:ender_dragon_double_axe",
+      "required": false
+    },
+    {
+      "id": "lne_rogues:elder_guardian_double_axe",
+      "required": false
+    },
+    {
+      "id": "lne_rogues:wither_double_axe",
+      "required": false
+    },
+    {
+      "id": "lne_rogues:glacial_double_axe",
+      "required": false
+    }
+  ]
+}

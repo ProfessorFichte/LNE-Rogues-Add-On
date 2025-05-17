@@ -1,11 +1,6 @@
 package com.lne_rogues.item;
 
-import com.lne_rogues.item.weapons.DragonRogue;
-import com.lne_rogues.item.weapons.ElderGuardianRogue;
-import com.lne_rogues.item.weapons.GlacialRogue;
-import com.lne_rogues.item.weapons.WitherRogue;
 import more_rpg_loot.item.Group;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterials;
@@ -14,9 +9,12 @@ import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.more_rpg_classes.custom.MoreSpellSchools;
-import net.spell_engine.api.item.ItemConfig;
+import net.spell_engine.api.config.AttributeModifier;
+import net.spell_engine.api.config.WeaponConfig;
+import net.spell_engine.api.item.Equipment;
 import net.spell_engine.api.item.weapon.Weapon;
 import net.spell_power.api.SpellSchools;
+import net.spell_engine.api.item.weapon.SpellSwordItem;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -24,24 +22,20 @@ import java.util.function.Supplier;
 
 import static com.lne_rogues.LNE_Rogues_Mod.MOD_ID;
 import static com.lne_rogues.LNE_Rogues_Mod.tweaksConfig;
+import static more_rpg_loot.compat.spell_engine.LNE_Weapons.*;
 
 public class WeaponRegister {
     public static final ArrayList<Weapon.Entry> entries = new ArrayList<>();
 
-    private static Weapon.Entry entry(String name, Weapon.CustomMaterial material, Item item, ItemConfig.Weapon defaults) {
-        return entry(null, name, material, item, defaults);
-    }
-
-    private static Weapon.Entry entry(String requiredMod, String name, Weapon.CustomMaterial material, Item item, ItemConfig.Weapon defaults) {
-        var entry = new Weapon.Entry(MOD_ID, name, material, item, defaults, null);
-        if (entry.isRequiredModInstalled()) {
-            entries.add(entry);
-        }
+    private static Weapon.Entry entry(String name, Weapon.CustomMaterial material, Weapon.Factory factory, WeaponConfig defaults, Equipment.WeaponType type) {
+        var entry = new Weapon.Entry(MOD_ID, name, material, factory, defaults, type);
+        entry.castSpell();
+        entries.add(entry);
         return entry;
     }
 
     private static Supplier<Ingredient> ingredient(String idString, boolean requirement, Item fallback) {
-        var id = new Identifier(idString);
+        var id = Identifier.of(idString);
         if (requirement) {
             return () -> {
                 return Ingredient.ofItems(fallback);
@@ -55,239 +49,97 @@ public class WeaponRegister {
         }
     }
 
-    ///ATTACKSPEED_VALUES
+    private static Weapon.Entry dagger(String name, Weapon.CustomMaterial material, float damage) {
+        return entry(name, material, SpellSwordItem::new, new WeaponConfig(damage, rogues_daggerAttackSpeed), Equipment.WeaponType.DAGGER);
+    }
+    private static Weapon.Entry axe(String name, Weapon.CustomMaterial material, float damage) {
+        return entry(name, material, SpellSwordItem::new, new WeaponConfig(damage, rogues_doubleAxeAttackSpeed), Equipment.WeaponType.DOUBLE_AXE);
+    }
+    private static Weapon.Entry glaive(String name, Weapon.CustomMaterial material, float damage) {
+        return entry(name, material, SpellSwordItem::new, new WeaponConfig(damage, rogues_glaiveAttackSpeed), Equipment.WeaponType.GLAIVE);
+    }
+    private static Weapon.Entry sickle(String name, Weapon.CustomMaterial material, float damage) {
+        return entry(name, material, SpellSwordItem::new, new WeaponConfig(damage, rogues_sickleAttackSpeed), Equipment.WeaponType.SICKLE);
+    }
+
     private static final float rogues_sickleAttackSpeed = -2.0F;
     private static final float rogues_daggerAttackSpeed = -1.6F;
     private static final float rogues_glaiveAttackSpeed = -2.6F;
     private static final float rogues_doubleAxeAttackSpeed = -2.8F;
+    private static final float weaponSpellPower = 2.0F;
+    private static final float daggerAttackDamage = 5.5F;
+    private static final float sickleAttackDamage = 6.8F;
+    private static final float glaiveAttackDamage = 9.3F;
+    private static final float doubleAxeAttackDamage = 11.0F;
 
-    private static final float weaponSpellPower = 3.0F;
-    //DAGGER
-    private static final float daggerAttackDamage = 5.1F;
-    private static Weapon.Entry daggerDragon(String name, Weapon.CustomMaterial material) {
-        return daggerDragon(null, name, material);
-    }
-    private static Weapon.Entry daggerDragon(String requiredMod, String name, Weapon.CustomMaterial material) {
-        var settings = new Item.Settings();
-        settings = settings.rarity(Rarity.EPIC).fireproof();
-        var item = new DragonRogue(material, settings);
-        return entry(requiredMod, name, material, item, new ItemConfig.Weapon(daggerAttackDamage, rogues_daggerAttackSpeed));
-    }
-    private static Weapon.Entry daggerElderGuardian(String name, Weapon.CustomMaterial material) {
-        return daggerElderGuardian(null, name, material);
-    }
-    private static Weapon.Entry daggerElderGuardian(String requiredMod, String name, Weapon.CustomMaterial material) {
-        var settings = new Item.Settings();
-        settings = settings.rarity(Rarity.EPIC).fireproof();
-        var item = new ElderGuardianRogue(material, settings);
-        return entry(requiredMod, name, material, item, new ItemConfig.Weapon(daggerAttackDamage, rogues_daggerAttackSpeed));
-    }
-    private static Weapon.Entry daggerWither(String name, Weapon.CustomMaterial material) {
-        return daggerWither(null, name, material);
-    }
-    private static Weapon.Entry daggerWither(String requiredMod, String name, Weapon.CustomMaterial material) {
-        var settings = new Item.Settings();
-        settings = settings.rarity(Rarity.EPIC).fireproof();
-        var item = new WitherRogue(material, settings);
-        return entry(requiredMod, name, material, item, new ItemConfig.Weapon(daggerAttackDamage, rogues_daggerAttackSpeed));
-    }
-    private static Weapon.Entry daggerGlacial(String name, Weapon.CustomMaterial material) {
-        return daggerGlacial(null, name, material);
-    }
-    private static Weapon.Entry daggerGlacial(String requiredMod, String name, Weapon.CustomMaterial material) {
-        var settings = new Item.Settings();
-        settings = settings.rarity(Rarity.EPIC).fireproof();
-        var item = new GlacialRogue(material, settings);
-        return entry(requiredMod, name, material, item, new ItemConfig.Weapon(daggerAttackDamage, rogues_daggerAttackSpeed));
-    }
-
-    //SICKLE
-    private static final float sickleAttackDamage = 6.4F;
-    private static Weapon.Entry sickleDragon(String name, Weapon.CustomMaterial material) {
-        return sickleDragon(null, name, material);
-    }
-    private static Weapon.Entry sickleDragon(String requiredMod, String name, Weapon.CustomMaterial material) {
-        var settings = new Item.Settings();
-        settings = settings.rarity(Rarity.EPIC).fireproof();
-        var item = new DragonRogue(material, settings);
-        return entry(requiredMod, name, material, item, new ItemConfig.Weapon(sickleAttackDamage, rogues_sickleAttackSpeed));
-    }
-    private static Weapon.Entry sickleElderGuardian(String name, Weapon.CustomMaterial material) {
-        return sickleElderGuardian(null, name, material);
-    }
-    private static Weapon.Entry sickleElderGuardian(String requiredMod, String name, Weapon.CustomMaterial material) {
-        var settings = new Item.Settings();
-        settings = settings.rarity(Rarity.EPIC).fireproof();
-        var item = new ElderGuardianRogue(material, settings);
-        return entry(requiredMod, name, material, item, new ItemConfig.Weapon(sickleAttackDamage, rogues_sickleAttackSpeed));
-    }
-    private static Weapon.Entry sickleWither(String name, Weapon.CustomMaterial material) {
-        return sickleWither(null, name, material);
-    }
-    private static Weapon.Entry sickleWither(String requiredMod, String name, Weapon.CustomMaterial material) {
-        var settings = new Item.Settings();
-        settings = settings.rarity(Rarity.EPIC).fireproof();
-        var item = new WitherRogue(material, settings);
-        return entry(requiredMod, name, material, item, new ItemConfig.Weapon(sickleAttackDamage, rogues_sickleAttackSpeed));
-    }
-    private static Weapon.Entry sickleGlacial(String name, Weapon.CustomMaterial material) {
-        return sickleGlacial(null, name, material);
-    }
-    private static Weapon.Entry sickleGlacial(String requiredMod, String name, Weapon.CustomMaterial material) {
-        var settings = new Item.Settings();
-        settings = settings.rarity(Rarity.EPIC).fireproof();
-        var item = new GlacialRogue(material, settings);
-        return entry(requiredMod, name, material, item, new ItemConfig.Weapon(sickleAttackDamage, rogues_sickleAttackSpeed));
-    }
-
-    //GLAIVE
-    private static final float glaiveAttackDamage = 8.7F;
-    private static Weapon.Entry glaiveDragon(String name, Weapon.CustomMaterial material) {
-        return glaiveDragon(null, name, material);
-    }
-    private static Weapon.Entry glaiveDragon(String requiredMod, String name, Weapon.CustomMaterial material) {
-        var settings = new Item.Settings();
-        settings = settings.rarity(Rarity.EPIC).fireproof();
-        var item = new DragonRogue(material, settings);
-        return entry(requiredMod, name, material, item, new ItemConfig.Weapon(glaiveAttackDamage, rogues_glaiveAttackSpeed));
-    }
-    private static Weapon.Entry glaiveElderGuardian(String name, Weapon.CustomMaterial material) {
-        return glaiveElderGuardian(null, name, material);
-    }
-    private static Weapon.Entry glaiveElderGuardian(String requiredMod, String name, Weapon.CustomMaterial material) {
-        var settings = new Item.Settings();
-        settings = settings.rarity(Rarity.EPIC).fireproof();
-        var item = new ElderGuardianRogue(material, settings);
-        return entry(requiredMod, name, material, item, new ItemConfig.Weapon(glaiveAttackDamage, rogues_glaiveAttackSpeed));
-    }
-    private static Weapon.Entry glaiveWither(String name, Weapon.CustomMaterial material) {
-        return glaiveWither(null, name, material);
-    }
-    private static Weapon.Entry glaiveWither(String requiredMod, String name, Weapon.CustomMaterial material) {
-        var settings = new Item.Settings();
-        settings = settings.rarity(Rarity.EPIC).fireproof();
-        var item = new WitherRogue(material, settings);
-        return entry(requiredMod, name, material, item, new ItemConfig.Weapon(glaiveAttackDamage, rogues_glaiveAttackSpeed));
-    }
-    private static Weapon.Entry glaiveGlacial(String name, Weapon.CustomMaterial material) {
-        return glaiveGlacial(null, name, material);
-    }
-    private static Weapon.Entry glaiveGlacial(String requiredMod, String name, Weapon.CustomMaterial material) {
-        var settings = new Item.Settings();
-        settings = settings.rarity(Rarity.EPIC).fireproof();
-        var item = new GlacialRogue(material, settings);
-        return entry(requiredMod, name, material, item, new ItemConfig.Weapon(glaiveAttackDamage, rogues_glaiveAttackSpeed));
-    }
-
-    //DOUBLE AXE
-    private static final float doubleAxeAttackDamage = 10.3F;
-    private static Weapon.Entry doubleAxeDragon(String name, Weapon.CustomMaterial material) {
-        return doubleAxeDragon(null, name, material);
-    }
-    private static Weapon.Entry doubleAxeDragon(String requiredMod, String name, Weapon.CustomMaterial material) {
-        var settings = new Item.Settings();
-        settings = settings.rarity(Rarity.EPIC).fireproof();
-        var item = new DragonRogue(material, settings);
-        return entry(requiredMod, name, material, item, new ItemConfig.Weapon(doubleAxeAttackDamage, rogues_doubleAxeAttackSpeed));
-    }
-    private static Weapon.Entry doubleAxeElderGuardian(String name, Weapon.CustomMaterial material) {
-        return doubleAxeElderGuardian(null, name, material);
-    }
-    private static Weapon.Entry doubleAxeElderGuardian(String requiredMod, String name, Weapon.CustomMaterial material) {
-        var settings = new Item.Settings();
-        settings = settings.rarity(Rarity.EPIC).fireproof();
-        var item = new ElderGuardianRogue(material, settings);
-        return entry(requiredMod, name, material, item, new ItemConfig.Weapon(doubleAxeAttackDamage, rogues_doubleAxeAttackSpeed));
-    }
-    private static Weapon.Entry doubleAxeWither(String name, Weapon.CustomMaterial material) {
-        return doubleAxeWither(null, name, material);
-    }
-    private static Weapon.Entry doubleAxeWither(String requiredMod, String name, Weapon.CustomMaterial material) {
-        var settings = new Item.Settings();
-        settings = settings.rarity(Rarity.EPIC).fireproof();
-        var item = new WitherRogue(material, settings);
-        return entry(requiredMod, name, material, item, new ItemConfig.Weapon(doubleAxeAttackDamage, rogues_doubleAxeAttackSpeed));
-    }
-    private static Weapon.Entry doubleAxeGlacial(String name, Weapon.CustomMaterial material) {
-        return doubleAxeGlacial(null, name, material);
-    }
-    private static Weapon.Entry doubleAxeGlacial(String requiredMod, String name, Weapon.CustomMaterial material) {
-        var settings = new Item.Settings();
-        settings = settings.rarity(Rarity.EPIC).fireproof();
-        var item = new GlacialRogue(material, settings);
-        return entry(requiredMod, name, material, item, new ItemConfig.Weapon(doubleAxeAttackDamage, rogues_doubleAxeAttackSpeed));
-    }
-
-
-    public static void register(Map<String, ItemConfig.Weapon> configs) {
+    public static void register(Map<String, WeaponConfig> configs) {
         if (!tweaksConfig.value.disable_special_lne_weapons) {
-            var dragonRepair = ingredient("loot_n_explore:ender_dragon_scales",
-                    FabricLoader.getInstance().isModLoaded("loot_n_explore"), Items.NETHERITE_INGOT);
-            var elderGuardianRepair = ingredient("loot_n_explore:elder_guardian_eye",
-                    FabricLoader.getInstance().isModLoaded("loot_n_explore"), Items.NETHERITE_INGOT);
-            var frostMonarchRepair = ingredient("loot_n_explore:frozen_soul",
-                    FabricLoader.getInstance().isModLoaded("loot_n_explore"), Items.NETHERITE_INGOT);
-            var witherRepair = ingredient("minecraft:nether_star",
-                    FabricLoader.getInstance().isModLoaded("loot_n_explore"), Items.NETHERITE_INGOT);
-            //DAGGER
-            daggerDragon("ender_dragon_dagger",
-                    Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, dragonRepair))
-                    .attribute(ItemConfig.Attribute.bonus(SpellSchools.ARCANE.id, weaponSpellPower));
-            daggerElderGuardian("elder_guardian_dagger",
-                    Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, elderGuardianRepair))
-                    .attribute(ItemConfig.Attribute.bonus(MoreSpellSchools.WATER.id, weaponSpellPower));
-            daggerWither("wither_dagger",
-                    Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, witherRepair))
-                    .attribute(ItemConfig.Attribute.bonus(SpellSchools.SOUL.id, weaponSpellPower));
-            daggerGlacial("glacial_dagger",
-                    Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, frostMonarchRepair))
-                    .attribute(ItemConfig.Attribute.bonus(SpellSchools.FROST.id, weaponSpellPower));
-
-            //SICKLE
-            sickleDragon("ender_dragon_sickle",
-                    Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, dragonRepair))
-                    .attribute(ItemConfig.Attribute.bonus(SpellSchools.ARCANE.id, weaponSpellPower));
-            sickleElderGuardian("elder_guardian_sickle",
-                    Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, elderGuardianRepair))
-                    .attribute(ItemConfig.Attribute.bonus(MoreSpellSchools.WATER.id, weaponSpellPower));
-            sickleWither("wither_sickle",
-                    Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, witherRepair))
-                    .attribute(ItemConfig.Attribute.bonus(SpellSchools.SOUL.id, weaponSpellPower));
-            sickleGlacial("glacial_sickle",
-                    Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, frostMonarchRepair))
-                    .attribute(ItemConfig.Attribute.bonus(SpellSchools.FROST.id, weaponSpellPower));
-
-            //GLAIVE
-            glaiveDragon("ender_dragon_glaive",
-                    Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, dragonRepair))
-                    .attribute(ItemConfig.Attribute.bonus(SpellSchools.ARCANE.id, weaponSpellPower));
-            glaiveElderGuardian("elder_guardian_glaive",
-                    Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, elderGuardianRepair))
-                    .attribute(ItemConfig.Attribute.bonus(MoreSpellSchools.WATER.id, weaponSpellPower));
-            glaiveWither("wither_glaive",
-                    Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, witherRepair))
-                    .attribute(ItemConfig.Attribute.bonus(SpellSchools.SOUL.id, weaponSpellPower));
-            glaiveGlacial("glacial_glaive",
-                    Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, frostMonarchRepair))
-                    .attribute(ItemConfig.Attribute.bonus(SpellSchools.FROST.id, weaponSpellPower));
-
-            //DOUBLE AXE
-            doubleAxeDragon("ender_dragon_double_axe",
-                    Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, dragonRepair))
-                    .attribute(ItemConfig.Attribute.bonus(SpellSchools.ARCANE.id, weaponSpellPower));
-            doubleAxeElderGuardian("elder_guardian_double_axe",
-                    Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, elderGuardianRepair))
-                    .attribute(ItemConfig.Attribute.bonus(MoreSpellSchools.WATER.id, weaponSpellPower));
-            doubleAxeWither("wither_double_axe",
-                    Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, witherRepair))
-                    .attribute(ItemConfig.Attribute.bonus(SpellSchools.SOUL.id, weaponSpellPower));
-            doubleAxeGlacial("glacial_double_axe",
-                    Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, frostMonarchRepair))
-                    .attribute(ItemConfig.Attribute.bonus(SpellSchools.FROST.id, weaponSpellPower));
-
-
+            dagger("ender_dragon_dagger",
+                    Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.AMETHYST_SHARD)), daggerAttackDamage)
+                    .spell(dragonclaw)
+                    .attribute(AttributeModifier.bonus(SpellSchools.ARCANE.id, weaponSpellPower));
+            sickle("ender_dragon_sickle",
+                    Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.AMETHYST_SHARD)), sickleAttackDamage)
+                    .spell(dragonclaw)
+                    .attribute(AttributeModifier.bonus(SpellSchools.ARCANE.id, weaponSpellPower));
+            glaive("ender_dragon_glaive",
+                    Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.AMETHYST_SHARD)), glaiveAttackDamage)
+                    .spell(dragonclaw)
+                    .attribute(AttributeModifier.bonus(SpellSchools.ARCANE.id, weaponSpellPower));
+            axe("ender_dragon_double_axe",
+                    Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.AMETHYST_SHARD)), doubleAxeAttackDamage)
+                    .spell(dragonclaw)
+                    .attribute(AttributeModifier.bonus(SpellSchools.ARCANE.id, weaponSpellPower));
+            dagger("elder_guardian_dagger",
+                    Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.PRISMARINE_SHARD)), daggerAttackDamage)
+                    .spell(waterbomb)
+                    .attribute(AttributeModifier.bonus(MoreSpellSchools.WATER.id, weaponSpellPower));
+            sickle("elder_guardian_sickle",
+                    Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.PRISMARINE_SHARD)), sickleAttackDamage)
+                    .spell(waterbomb)
+                    .attribute(AttributeModifier.bonus(MoreSpellSchools.WATER.id, weaponSpellPower));
+            glaive("elder_guardian_glaive",
+                    Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.PRISMARINE_SHARD)), glaiveAttackDamage)
+                    .spell(waterbomb)
+                    .attribute(AttributeModifier.bonus(MoreSpellSchools.WATER.id, weaponSpellPower));
+            axe("elder_guardian_double_axe",
+                    Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.PRISMARINE_SHARD)), doubleAxeAttackDamage)
+                    .spell(waterbomb)
+                    .attribute(AttributeModifier.bonus(MoreSpellSchools.WATER.id, weaponSpellPower));
+            dagger("wither_dagger",
+                    Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.BONE)), daggerAttackDamage)
+                    .spell(wither_pulse)
+                    .attribute(AttributeModifier.bonus(SpellSchools.SOUL.id, weaponSpellPower));
+            sickle("wither_sickle",
+                    Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.BONE)), sickleAttackDamage)
+                    .spell(wither_pulse)
+                    .attribute(AttributeModifier.bonus(SpellSchools.SOUL.id, weaponSpellPower));
+            glaive("wither_glaive",
+                    Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.BONE)), glaiveAttackDamage)
+                    .spell(wither_pulse)
+                    .attribute(AttributeModifier.bonus(SpellSchools.SOUL.id, weaponSpellPower));
+            axe("wither_double_axe",
+                    Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.BONE)), doubleAxeAttackDamage)
+                    .spell(wither_pulse)
+                    .attribute(AttributeModifier.bonus(SpellSchools.SOUL.id, weaponSpellPower));
+            dagger("glacial_dagger",
+                    Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.ICE)), daggerAttackDamage)
+                    .spell(avalanche)
+                    .attribute(AttributeModifier.bonus(SpellSchools.FROST.id, weaponSpellPower));
+            sickle("glacial_sickle",
+                    Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.ICE)), sickleAttackDamage)
+                    .spell(avalanche)
+                    .attribute(AttributeModifier.bonus(SpellSchools.FROST.id, weaponSpellPower));
+            glaive("glacial_glaive",
+                    Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.ICE)), glaiveAttackDamage)
+                    .spell(avalanche)
+                    .attribute(AttributeModifier.bonus(SpellSchools.FROST.id, weaponSpellPower));
+            axe("glacial_double_axe",
+                    Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.ICE)), doubleAxeAttackDamage)
+                    .spell(avalanche)
+                    .attribute(AttributeModifier.bonus(SpellSchools.FROST.id, weaponSpellPower));
         }
-
+        entries.forEach(entry -> entry.rarity = Rarity.RARE);
         Weapon.register(configs, entries, Group.RPG_LOOT_KEY);
     }
 }

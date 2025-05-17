@@ -1,0 +1,78 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "spell_engine:scroll",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "spell_engine:spell_container": {
+                  "spell_ids": ["rogues:shadow_step"],
+                  "max_spell_count": 1
+                },
+                "minecraft:custom_model_data": 7,
+                "minecraft:item_name": "{translate:item.rogues.rogue.spell_scroll}",
+                "minecraft:rarity": "rare"
+              }
+            },
+            {
+              "function": "minecraft:set_count",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "spell_engine:scroll",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "spell_engine:spell_container": {
+                  "spell_ids": ["rogues:vanish"],
+                  "max_spell_count": 1
+                },
+                "minecraft:custom_model_data": 7,
+                "minecraft:item_name": "{translate:item.rogues.rogue.spell_scroll}",
+                "minecraft:rarity": "epic"
+              }
+            },
+            {
+              "function": "minecraft:set_count",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "spell_engine:scroll",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "spell_engine:spell_container": {
+                  "spell_ids": ["lne_rogues:dancing_dagger"],
+                  "max_spell_count": 1
+                },
+                "minecraft:custom_model_data": 7,
+                "minecraft:item_name": "{translate:item.rogues.rogue.treasure_spell_scroll}",
+                "minecraft:rarity": "epic"
+              }
+            },
+            {
+              "function": "minecraft:set_count",
+              "count": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -6,7 +6,7 @@ import com.lne_rogues.item.WeaponRegister;
 import net.fabricmc.api.ModInitializer;
 import com.lne_rogues.config.TweaksConfig;
 import net.fabricmc.loader.api.FabricLoader;
-import net.spell_engine.api.item.ItemConfig;
+import net.spell_engine.api.config.ConfigFile;
 import net.tinyconfig.ConfigManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,8 +14,8 @@ import org.slf4j.LoggerFactory;
 public class LNE_Rogues_Mod implements ModInitializer {
 	public static final String MOD_ID = "lne_rogues";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-	public static ConfigManager<ItemConfig> itemConfig = new ConfigManager<>
-			("items_v1", Default.itemConfig)
+	public static ConfigManager<ConfigFile.Equipment> itemConfig = new ConfigManager<>
+			("items", Default.itemConfig)
 			.builder()
 			.setDirectory(MOD_ID)
 			.sanitize(true)
