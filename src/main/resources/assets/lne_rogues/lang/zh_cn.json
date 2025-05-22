@@ -1,0 +1,29 @@
+{
+    "item.lne_rogues.ender_dragon_dagger": "虚空毒刺",
+    "item.lne_rogues.ender_dragon_sickle": "龙息镰刃",
+    "item.lne_rogues.ender_dragon_glaive": "末影獠牙",
+    "item.lne_rogues.ender_dragon_double_axe": "龙爪双斧",
+
+    "item.lne_rogues.elder_guardian_dagger": "暗礁匕首",
+    "item.lne_rogues.elder_guardian_sickle": "深渊收割者",
+    "item.lne_rogues.elder_guardian_glaive": "海龙毒牙",
+    "item.lne_rogues.elder_guardian_double_axe": "潮汐斩斧",
+    
+    "item.lne_rogues.wither_dagger": "灵魂撕裂者",
+    "item.lne_rogues.wither_sickle": "凋灵之镰",
+    "item.lne_rogues.wither_glaive": "凋零战戟",
+    "item.lne_rogues.wither_double_axe": "凋灵双刃斧",
+    
+    "item.lne_rogues.glacial_dagger": "霜晶碎片",
+    "item.lne_rogues.glacial_sickle": "寒霜收割者",
+    "item.lne_rogues.glacial_glaive": "冰封獠牙",
+    "item.lne_rogues.glacial_double_axe": "冰川劈裂斧",
+
+    "spell.lne_rogues.second_wind.name": "§5回光返照",
+    "spell.lne_rogues.second_wind.description": "在{effect_duration}秒内，每2秒可恢复已损失生命值的 10-35%%。同时获得最大生命值20%%的伤害吸收护盾。",
+    "effect.lne_rogues.second_wind": "回光返照",
+    "effect.lne_rogues.second_wind.description": "生效时获得最大生命值20%的伤害吸收。每2秒可恢复已损失生命值的10-35%。",
+  
+    "spell.lne_rogues.dancing_dagger.name": "§5飞刃舞",
+    "spell.lne_rogues.dancing_dagger.description": "投掷武器攻击目标，造成{damage}点伤害。武器可弹射{ricochet}次。"
+}
