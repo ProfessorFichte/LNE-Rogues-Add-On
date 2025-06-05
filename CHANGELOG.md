@@ -1,3 +1,7 @@
+### 1.0.1 - 1.21.1
+- Update License
+- Update Mod Icon
+
 ### 1.0.0 - 1.21.1
 # Official 1.21.1 Release!
 # CHANGES

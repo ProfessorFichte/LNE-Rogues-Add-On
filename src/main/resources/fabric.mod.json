@@ -10,7 +10,7 @@
 	"contact": {
 		"sources": "https://github.com/ProfessorFichte/LNE-Wizards-Add-On"
 	},
-	"license": "MIT",
+	"license": "ARR",
 	"icon": "assets/lne_rogues/icon.png",
 	"environment": "*",
 	"entrypoints": {
@@ -31,7 +31,8 @@
 		"fabricloader": ">=0.16.5",
 		"minecraft": "~1.21",
 		"java": ">=17",
-		"fabric-api": "*"
+		"fabric-api": "*",
+		"rogues": "*"
 	},
 	"suggests": {
 		"loot_n_explore": ">=1.0.2-1.21.1"
