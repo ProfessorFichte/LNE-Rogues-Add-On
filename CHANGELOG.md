@@ -1,3 +1,8 @@
+# 0.1.6 - 1.20.1
+- Update Mod Icon
+- Update License
+- Add zh_cn lang file (Thx Ansurfen)
+
 # 0.1.5 - 1.20.1
 - update item textures
 - add dancing dagger projectile model
