@@ -1,3 +1,7 @@
+### 1.0.2 - 1.21.1
+- Spell Engine 1.7
+- Dancing Dagger now also inflicts the grievous wounds effect
+
 ### 1.0.1 - 1.21.1
 - Update License
 - Update Mod Icon

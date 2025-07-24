@@ -25,7 +25,7 @@
   "effect.lne_rogues.second_wind.description": "When applied, gain 20% of your max health as absorption. You can recover 10-35% of your missing health every 2 seconds.",
 
   "spell.lne_rogues.dancing_dagger.name": "Dancing Dagger",
-  "spell.lne_rogues.dancing_dagger.description": "Throws a dancing dagger, which can ricochet {ricochet} times and deals {damage} damage.",
+  "spell.lne_rogues.dancing_dagger.description": "Dancing dagger which ricochets {ricochet} times, deals {damage} damage and inflicts grievous wounds for {effect_duration} seconds.",
 
   "item.rogues.rogue.treasure_spell_scroll": "Treasure Rogue Skill Scroll",
   "item.rogues.warrior.treasure_spell_scroll": "Treasure Warriors Skill Scroll"

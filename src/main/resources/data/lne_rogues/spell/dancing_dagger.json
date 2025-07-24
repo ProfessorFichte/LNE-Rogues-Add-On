@@ -6,13 +6,13 @@
     "scroll": {},
     "cast": {
       "duration": 0.5,
-      "animation": "lne_rogues:dagger_throw_charge",
+      "animation": "more_rpg_classes:dagger_throw_charge",
       "particles": [ ]
     }
   },
 
   "release": {
-    "animation": "lne_rogues:dagger_throw_release",
+    "animation": "more_rpg_classes:dagger_throw_release",
     "sound": {
       "id": "rogues:throw"
     }
@@ -25,7 +25,6 @@
         "velocity": 1.3
       },
       "projectile": {
-        "homing_angle": 0.0,
         "perks": {
           "bounce": 0,
           "ricochet": 7,
@@ -36,7 +35,6 @@
           "model": {
             "model_id": "lne_rogues:projectile/dancing_dagger",
             "light_emission": "NONE",
-            "rotate_degrees_per_tick": -36.0,
             "scale": 1,
             "orientation": "TOWARDS_MOTION"
           }
@@ -60,6 +58,29 @@
       "sound": {
         "id": "rogues:throw_impact"
       }
+    },
+    {
+      "action": {
+        "type": "STATUS_EFFECT",
+        "status_effect": {
+          "effect_id": "more_rpg_classes:grievous_wounds",
+          "duration": 5,
+          "apply_mode": "SET",
+          "amplifier_power_multiplier": 0.1,
+          "show_particles": false
+        }
+      },
+      "particles": [
+        {
+          "particle_id": "spell_engine:smoke_medium",
+          "origin": "CENTER",
+          "shape": "SPHERE",
+          "count": 5.0,
+          "min_speed": 0.2,
+          "max_speed": 0.2,
+          "color_rgba": 3208659199
+        }
+      ]
     }
   ],
 
