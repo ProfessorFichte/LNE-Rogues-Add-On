@@ -1,3 +1,7 @@
+### 1.0.3 - 1.21.1
+- Dancing Dagger & Second Wind are now a T4 spell
+- they can now also be looted outside the classes structure
+
 ### 1.0.2 - 1.21.1
 - Spell Engine 1.7
 - Dancing Dagger now also inflicts the grievous wounds effect
