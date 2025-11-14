@@ -1,0 +1,45 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+#issueTrackerURL = ""
+license = "ARR"
+
+[[mods]]
+modId = "lne_rogues"
+version = "${version}"
+displayName = "LNE Rogues"
+authors = "Fichte"
+description = '''
+Loot & Explore Add-On with Rogues RPG-Series Content.
+'''
+logoFile = "icon.png"
+
+[[dependencies.lne_rogues]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.lne_rogues]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.lne_rogues]]
+modId = "rogues"
+type = "required"
+versionRange = "[${rogues_version},)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.lne_rogues]]
+modId = "more_rpg_classes"
+type = "required"
+versionRange = "[${more_rpg_library_version},)"
+ordering = "NONE"
+side = "BOTH"
+
+[[mixins]]
+config = "lne_rogues.mixins.json"

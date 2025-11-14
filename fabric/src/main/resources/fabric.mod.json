@@ -11,14 +11,14 @@
 		"sources": "https://github.com/ProfessorFichte/LNE-Wizards-Add-On"
 	},
 	"license": "ARR",
-	"icon": "assets/lne_rogues/icon.png",
+	"icon": "icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-          "com.lne_rogues.LNE_Rogues_Mod"
+          "com.lne_rogues.fabric.FabricMod"
 		],
 		"client": [
-			"com.lne_rogues.client.LNE_Rogues_Client"
+			"com.lne_rogues.fabric.client.FabricClient"
 		],
 		"fabric-datagen": [
 			"com.lne_rogues.Lne_roguesDataGenerator"

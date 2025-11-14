@@ -66,7 +66,7 @@ public class WeaponRegister {
     private static final float rogues_daggerAttackSpeed = -1.6F;
     private static final float rogues_glaiveAttackSpeed = -2.6F;
     private static final float rogues_doubleAxeAttackSpeed = -2.8F;
-    private static final float weaponSpellPower = 2.0F;
+    private static final float weaponSpellPower = 4.0F;
     private static final float daggerAttackDamage = 5.5F;
     private static final float sickleAttackDamage = 6.8F;
     private static final float glaiveAttackDamage = 9.3F;

@@ -1,3 +1,8 @@
+### 1.0.4 - 1.21.1
+- Move to Architectury Enviroment for Multiloader
+- NeoForge Beta!
+- Update Weapon Spell Power
+
 ### 1.0.3 - 1.21.1
 - Dancing Dagger & Second Wind are now a T4 spell
 - they can now also be looted outside the classes structure
