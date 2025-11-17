@@ -1,0 +1,236 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": {
+        "type": "minecraft:uniform",
+        "min": 2,
+        "max": 4
+      },
+      "bonus_rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:ink_sac",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 4
+              }
+            }
+          ],
+          "conditions": []
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:gold_ingot",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 4
+              }
+            }
+          ],
+          "conditions": []
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:rabbit_hide",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2,
+                "max": 5
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "rogues:iron_dagger",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 1
+            },
+            {
+              "function": "enchant_with_levels",
+              "treasure": false,
+              "levels": {
+                "min": 1,
+                "max": 13
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.35
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "rogues:iron_sickle",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 1
+            },
+            {
+              "function": "enchant_with_levels",
+              "treasure": false,
+              "levels": {
+                "min": 1,
+                "max": 13
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.35
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "rogues:rogue_armor_head",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 1
+            },
+            {
+              "function": "enchant_with_levels",
+              "treasure": false,
+              "levels": {
+                "min": 1,
+                "max": 13
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.35
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "rogues:rogue_armor_chest",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 1
+            },
+            {
+              "function": "enchant_with_levels",
+              "treasure": false,
+              "levels": {
+                "min": 1,
+                "max": 13
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.35
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "rogues:rogue_armor_legs",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 1
+            },
+            {
+              "function": "enchant_with_levels",
+              "treasure": false,
+              "levels": {
+                "min": 1,
+                "max": 13
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.35
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "rogues:rogue_armor_feet",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 1
+            },
+            {
+              "function": "enchant_with_levels",
+              "treasure": false,
+              "levels": {
+                "min": 1,
+                "max": 13
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.35
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": {
+        "type": "minecraft:uniform",
+        "min": 1,
+        "max": 1
+      },
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "spell_engine:scroll",
+          "functions": [
+            {
+              "function": "more_rpg_classes:specific_spell_scroll_pool",
+              "spell_pools": ["#rogues:rogue","#archers_expansion:deadeye"],
+              "spell_tier_min": 2,
+              "spell_tier_max": 3,
+              "count": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

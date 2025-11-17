@@ -1,0 +1,100 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": {
+        "type": "minecraft:uniform",
+        "min": 2,
+        "max": 3
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:leather",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 4,
+                "max": 8
+              }
+            }
+          ],
+          "conditions": []
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_ingot",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2,
+                "max": 5
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "rogues:iron_dagger",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "rogues:iron_sickle",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "rogues:rogue_armor_head",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "rogues:rogue_armor_chest",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "rogues:rogue_armor_legs",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "rogues:rogue_armor_feet",
+          "weight": 2
+        }
+      ]
+    },
+    {
+      "rolls": {
+        "type": "minecraft:uniform",
+        "min": 1,
+        "max": 1
+      },
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "spell_engine:scroll",
+          "functions": [
+            {
+              "function": "more_rpg_classes:specific_spell_scroll_pool",
+              "spell_pools": ["#rogues:rogue","#archers_expansion:deadeye"],
+              "spell_tier_min": 1,
+              "spell_tier_max": 2,
+              "count": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
