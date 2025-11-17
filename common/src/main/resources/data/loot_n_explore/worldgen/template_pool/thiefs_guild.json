@@ -1,0 +1,15 @@
+{
+  "name": "loot_n_explore:thiefs_guild",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "loot_n_explore:thiefs_guild/base_0",
+        "projection": "rigid",
+        "processors": "minecraft:empty"
+      }
+    }
+  ]
+}

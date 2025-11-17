@@ -29,6 +29,10 @@
     {
       "structure": "loot_n_explore:rogue_hideout",
       "weight": 3
+    },
+    {
+      "structure": "loot_n_explore:thiefs_guild",
+      "weight": 1
     }
   ]
 }

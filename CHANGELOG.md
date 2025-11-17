@@ -2,6 +2,8 @@
 - Move to Architectury Enviroment for Multiloader
 - NeoForge Beta!
 - Update Weapon Spell Power
+- Add new Structure - Thiefs Guild
+- completely overhaul loot-tables
 
 ### 1.0.3 - 1.21.1
 - Dancing Dagger & Second Wind are now a T4 spell
