@@ -2,12 +2,12 @@
   "placement": {
     "exclusion_zone": {
       "other_set": "minecraft:villages",
-      "chunk_count": 10
+      "chunk_count": 12
     },
     "type": "minecraft:random_spread",
     "salt": 12327675,
-    "separation": 8,
-    "spacing": 22
+    "separation": 14,
+    "spacing": 26
   },
   "structures": [
     {

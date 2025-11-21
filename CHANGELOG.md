@@ -4,6 +4,7 @@
 - Update Weapon Spell Power
 - Add new Structure - Thiefs Guild
 - completely overhaul loot-tables
+- nerf separation and spacing for the structures from this mod, to make them rarer
 
 ### 1.0.3 - 1.21.1
 - Dancing Dagger & Second Wind are now a T4 spell

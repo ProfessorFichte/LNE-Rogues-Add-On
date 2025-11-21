@@ -4,7 +4,7 @@
     {
       "rolls": {
         "type": "minecraft:uniform",
-        "min": 2,
+        "min": 1,
         "max": 3
       },
       "entries": [
@@ -39,6 +39,60 @@
         },
         {
           "type": "minecraft:item",
+          "name": "minecraft:arrow",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 10
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:chain",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2,
+                "max": 4
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:goat_horn",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:crossbow",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "more_rpg_classes:conditional_item",
+              "conditional_item": "archers:composite_longbow"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
           "name": "rogues:iron_glaive",
           "weight": 2
         },
@@ -50,22 +104,22 @@
         {
           "type": "minecraft:item",
           "name": "rogues:warrior_armor_head",
-          "weight": 2
+          "weight": 1
         },
         {
           "type": "minecraft:item",
           "name": "rogues:warrior_armor_chest",
-          "weight": 2
+          "weight": 1
         },
         {
           "type": "minecraft:item",
           "name": "rogues:warrior_armor_legs",
-          "weight": 2
+          "weight": 1
         },
         {
           "type": "minecraft:item",
           "name": "rogues:warrior_armor_feet",
-          "weight": 2
+          "weight": 1
         }
       ]
     },
@@ -78,7 +132,7 @@
       "entries": [
         {
           "type": "minecraft:empty",
-          "weight": 3
+          "weight": 5
         },
         {
           "type": "minecraft:item",
@@ -93,6 +147,51 @@
               "count": 1
             }
           ]
+        }
+      ]
+    },
+    {
+      "rolls": {
+        "type": "minecraft:uniform",
+        "min": 1,
+        "max": 1
+      },
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 10
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "jewelry:sapphire_ring"
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "jewelry:sapphire_necklace"
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "jewelry:ruby_ring"
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "jewelry:ruby_necklace"
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "relics_rpgs:jewel_figurine_ruby"
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "relics_rpgs:jewel_figurine_sapphire"
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "loot_n_explore:sweet_berry_punch"
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "loot_n_explore:potato_soup"
         }
       ]
     }

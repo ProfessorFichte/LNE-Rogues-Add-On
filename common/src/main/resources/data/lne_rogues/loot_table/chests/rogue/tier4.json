@@ -7,7 +7,7 @@
         "min": 2,
         "max": 4
       },
-      "bonus_rolls": 1,
+      "bonus_rolls": 0.5,
       "entries": [
         {
           "type": "minecraft:item",
@@ -56,7 +56,7 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:diamond",
-          "weight": 3,
+          "weight": 2,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -70,12 +70,8 @@
         {
           "type": "minecraft:item",
           "name": "rogues:diamond_dagger",
-          "weight": 2,
+          "weight": 1,
           "functions": [
-            {
-              "function": "set_count",
-              "count": 1
-            },
             {
               "function": "enchant_with_levels",
               "treasure": false,
@@ -86,7 +82,7 @@
               "conditions": [
                 {
                   "condition": "random_chance",
-                  "chance": 0.4
+                  "chance": 0.5
                 }
               ]
             }
@@ -95,12 +91,8 @@
         {
           "type": "minecraft:item",
           "name": "rogues:diamond_sickle",
-          "weight": 2,
+          "weight": 1,
           "functions": [
-            {
-              "function": "set_count",
-              "count": 1
-            },
             {
               "function": "enchant_with_levels",
               "treasure": false,
@@ -111,7 +103,28 @@
               "conditions": [
                 {
                   "condition": "random_chance",
-                  "chance": 0.4
+                  "chance": 0.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:diamond_sword",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": false,
+              "levels": {
+                "min": 6,
+                "max": 18
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.5
                 }
               ]
             }
@@ -120,12 +133,8 @@
         {
           "type": "minecraft:item",
           "name": "rogues:assassin_armor_head",
-          "weight": 2,
+          "weight": 1,
           "functions": [
-            {
-              "function": "set_count",
-              "count": 1
-            },
             {
               "function": "enchant_with_levels",
               "treasure": false,
@@ -136,7 +145,7 @@
               "conditions": [
                 {
                   "condition": "random_chance",
-                  "chance": 0.4
+                  "chance": 0.5
                 }
               ]
             }
@@ -145,12 +154,8 @@
         {
           "type": "minecraft:item",
           "name": "rogues:assassin_armor_chest",
-          "weight": 2,
+          "weight": 1,
           "functions": [
-            {
-              "function": "set_count",
-              "count": 1
-            },
             {
               "function": "enchant_with_levels",
               "treasure": false,
@@ -161,7 +166,7 @@
               "conditions": [
                 {
                   "condition": "random_chance",
-                  "chance": 0.4
+                  "chance": 0.5
                 }
               ]
             }
@@ -170,12 +175,8 @@
         {
           "type": "minecraft:item",
           "name": "rogues:assassin_armor_legs",
-          "weight": 2,
+          "weight": 1,
           "functions": [
-            {
-              "function": "set_count",
-              "count": 1
-            },
             {
               "function": "enchant_with_levels",
               "treasure": false,
@@ -186,7 +187,7 @@
               "conditions": [
                 {
                   "condition": "random_chance",
-                  "chance": 0.4
+                  "chance": 0.5
                 }
               ]
             }
@@ -195,12 +196,8 @@
         {
           "type": "minecraft:item",
           "name": "rogues:assassin_armor_feet",
-          "weight": 2,
+          "weight": 1,
           "functions": [
-            {
-              "function": "set_count",
-              "count": 1
-            },
             {
               "function": "enchant_with_levels",
               "treasure": false,
@@ -211,7 +208,7 @@
               "conditions": [
                 {
                   "condition": "random_chance",
-                  "chance": 0.4
+                  "chance": 0.5
                 }
               ]
             }
@@ -241,6 +238,157 @@
               "spell_tier_min": 3,
               "spell_tier_max": 4,
               "count": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": {
+        "type": "minecraft:uniform",
+        "min": 1,
+        "max": 1
+      },
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 3
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "jewelry:netherite_ruby_ring"
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "jewelry:netherite_ruby_necklace"
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "relics_rpgs:medium_proc_evasion"
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "relics_rpgs:medium_proc_attack_speed"
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "loot_n_explore:espresso"
+        }
+      ]
+    },
+    {
+      "rolls": {
+        "type": "minecraft:uniform",
+        "min": 1,
+        "max": 2
+      },
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 4
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "archers:mechanic_shortbow",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": false,
+              "levels": {
+                "min": 1,
+                "max": 13
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "archers_expansion:deadeye_head",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": false,
+              "levels": {
+                "min": 6,
+                "max": 18
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "archers_expansion:deadeye_chest",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": false,
+              "levels": {
+                "min": 6,
+                "max": 18
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "archers_expansion:deadeye_legs",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": false,
+              "levels": {
+                "min": 6,
+                "max": 18
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "archers_expansion:deadeye_feet",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": false,
+              "levels": {
+                "min": 6,
+                "max": 18
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.5
+                }
+              ]
             }
           ]
         }

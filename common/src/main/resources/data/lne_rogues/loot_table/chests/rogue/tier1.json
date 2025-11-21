@@ -5,7 +5,7 @@
       "rolls": {
         "type": "minecraft:uniform",
         "min": 1,
-        "max": 3
+        "max": 2
       },
       "entries": [
         {
@@ -54,7 +54,22 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:iron_nugget",
+          "name": "minecraft:flint",
+          "weight": 4,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 5
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:gold_nugget",
           "weight": 4,
           "functions": [
             {
@@ -68,6 +83,21 @@
         },
         {
           "type": "minecraft:item",
+          "name": "minecraft:lapis_lazuli",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 2
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
           "name": "minecraft:iron_ingot",
           "weight": 2,
           "functions": [
@@ -75,7 +105,21 @@
               "function": "minecraft:set_count",
               "count": {
                 "min": 1,
-                "max": 3
+                "max": 2
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:gold_ingot",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 2
               }
             }
           ]
@@ -83,6 +127,11 @@
         {
           "type": "minecraft:item",
           "name": "rogues:flint_dagger",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:bow",
           "weight": 3
         },
         {
@@ -106,7 +155,7 @@
       "entries": [
         {
           "type": "minecraft:empty",
-          "weight": 4
+          "weight": 7
         },
         {
           "type": "minecraft:item",
@@ -121,6 +170,47 @@
               "count": 1
             }
           ]
+        }
+      ]
+    },
+    {
+      "rolls": {
+        "type": "minecraft:uniform",
+        "min": 1,
+        "max": 1
+      },
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 15
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "jewelry:diamond_ring"
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "jewelry:diamond_necklace"
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "jewelry:ruby_ring"
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "jewelry:ruby_necklace"
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "relics_rpgs:jewel_figurine_ruby"
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "loot_n_explore:hot_chocolate"
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "loot_n_explore:potato_soup"
         }
       ]
     }

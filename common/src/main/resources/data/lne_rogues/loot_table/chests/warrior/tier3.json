@@ -5,14 +5,14 @@
       "rolls": {
         "type": "minecraft:uniform",
         "min": 2,
-        "max": 4
+        "max": 3
       },
-      "bonus_rolls": 1,
+      "bonus_rolls": 0.25,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:chain",
-          "weight": 3,
+          "weight": 4,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -27,7 +27,7 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:iron_ingot",
-          "weight": 3,
+          "weight": 4,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -41,8 +41,23 @@
         },
         {
           "type": "minecraft:item",
+          "name": "minecraft:arrow",
+          "weight": 4,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 6,
+                "max": 16
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
           "name": "minecraft:goat_horn",
-          "weight": 2,
+          "weight": 4,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -56,7 +71,7 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:netherite_scrap",
-          "weight": 2,
+          "weight": 3,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -70,12 +85,8 @@
         {
           "type": "minecraft:item",
           "name": "rogues:iron_double_axe",
-          "weight": 2,
+          "weight": 3,
           "functions": [
-            {
-              "function": "set_count",
-              "count": 1
-            },
             {
               "function": "enchant_with_levels",
               "treasure": false,
@@ -95,12 +106,29 @@
         {
           "type": "minecraft:item",
           "name": "rogues:iron_glaive",
-          "weight": 2,
+          "weight": 3,
           "functions": [
             {
-              "function": "set_count",
-              "count": 1
-            },
+              "function": "enchant_with_levels",
+              "treasure": false,
+              "levels": {
+                "min": 1,
+                "max": 13
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.35
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_sword",
+          "weight": 3,
+          "functions": [
             {
               "function": "enchant_with_levels",
               "treasure": false,
@@ -123,10 +151,6 @@
           "weight": 2,
           "functions": [
             {
-              "function": "set_count",
-              "count": 1
-            },
-            {
               "function": "enchant_with_levels",
               "treasure": false,
               "levels": {
@@ -147,10 +171,6 @@
           "name": "rogues:warrior_armor_chest",
           "weight": 2,
           "functions": [
-            {
-              "function": "set_count",
-              "count": 1
-            },
             {
               "function": "enchant_with_levels",
               "treasure": false,
@@ -173,10 +193,6 @@
           "weight": 2,
           "functions": [
             {
-              "function": "set_count",
-              "count": 1
-            },
-            {
               "function": "enchant_with_levels",
               "treasure": false,
               "levels": {
@@ -198,9 +214,152 @@
           "weight": 2,
           "functions": [
             {
-              "function": "set_count",
-              "count": 1
-            },
+              "function": "enchant_with_levels",
+              "treasure": false,
+              "levels": {
+                "min": 1,
+                "max": 13
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.35
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:diamond_sword",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": false,
+              "levels": {
+                "min": 1,
+                "max": 13
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.35
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "rogues:diamond_double_axe",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": false,
+              "levels": {
+                "min": 1,
+                "max": 13
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.35
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "rogues:diamond_glaive",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": false,
+              "levels": {
+                "min": 1,
+                "max": 13
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.35
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "rogues:berserker_armor_head",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": false,
+              "levels": {
+                "min": 1,
+                "max": 13
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.35
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "rogues:berserker_armor_chest",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": false,
+              "levels": {
+                "min": 1,
+                "max": 13
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.35
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "rogues:berserker_armor_legs",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": false,
+              "levels": {
+                "min": 1,
+                "max": 13
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.35
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "rogues:berserker_armor_feet",
+          "weight": 1,
+          "functions": [
             {
               "function": "enchant_with_levels",
               "treasure": false,
@@ -228,7 +387,7 @@
       "entries": [
         {
           "type": "minecraft:empty",
-          "weight": 2
+          "weight": 3
         },
         {
           "type": "minecraft:item",
@@ -241,6 +400,190 @@
               "spell_tier_min": 2,
               "spell_tier_max": 3,
               "count": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": {
+        "type": "minecraft:uniform",
+        "min": 1,
+        "max": 1
+      },
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 8
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "jewelry:sapphire_ring"
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "jewelry:sapphire_necklace"
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "jewelry:ruby_ring"
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "jewelry:ruby_necklace"
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "relics_rpgs:lesser_melee_crit_damage"
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "relics_rpgs:lesser_use_damage"
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "loot_n_explore:malt_extract"
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "loot_n_explore:beet_rootbeer"
+        }
+      ]
+    },
+    {
+      "rolls": {
+        "type": "minecraft:uniform",
+        "min": 1,
+        "max": 2
+      },
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 8
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "archers:composite_longbow",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": false,
+              "levels": {
+                "min": 1,
+                "max": 13
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.35
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "archers:heavy_crossbow",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": false,
+              "levels": {
+                "min": 1,
+                "max": 13
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.35
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "archers_expansion:war_archer_head",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": false,
+              "levels": {
+                "min": 1,
+                "max": 13
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.35
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "archers_expansion:war_archer_chest",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": false,
+              "levels": {
+                "min": 1,
+                "max": 13
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.35
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "archers_expansion:war_archer_legs",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": false,
+              "levels": {
+                "min": 1,
+                "max": 13
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.35
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "more_rpg_classes:conditional_item",
+          "item": "archers_expansion:war_archer_feet",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": false,
+              "levels": {
+                "min": 1,
+                "max": 13
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.35
+                }
+              ]
             }
           ]
         }
