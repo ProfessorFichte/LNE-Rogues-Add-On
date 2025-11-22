@@ -1,12 +1,12 @@
 {
-  "name": "loot_n_explore:rogue_badlands_treasure",
+  "name": "lne_rogues:warrior_turret",
   "fallback": "minecraft:empty",
   "elements": [
     {
       "weight": 1,
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "loot_n_explore:rogue_badlands_treasure",
+        "location": "lne_rogues:warrior_turret",
         "projection": "rigid",
         "processors": "minecraft:empty"
       }

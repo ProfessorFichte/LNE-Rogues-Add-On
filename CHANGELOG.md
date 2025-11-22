@@ -1,9 +1,16 @@
+### 1.0.5 - 1.21.1
+- move all the structures from loot_n_explore to lne_rogues, so its more clearer that these structures come from this add on
+- again nerf spacing and increase exclusion from minecraft:villages
+- add stone double axe to warrior t1 loot table
+
 ### 1.0.4 - 1.21.1
 - Move to Architectury Enviroment for Multiloader
 - NeoForge Beta!
 - Update Weapon Spell Power
 - Add new Structure - Thiefs Guild
 - completely overhaul loot-tables
+- Rogue Loot Tables have some small integration with a Deadeye Class Loot Table
+- Warrior Loot Tables have some small integration with a War Archer Class Loot Table
 - nerf separation and spacing for the structures from this mod, to make them rarer
 
 ### 1.0.3 - 1.21.1

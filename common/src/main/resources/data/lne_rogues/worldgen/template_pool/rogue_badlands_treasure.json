@@ -1,12 +1,12 @@
 {
-  "name": "loot_n_explore:rogue_hideout",
+  "name": "lne_rogues:rogue_badlands_treasure",
   "fallback": "minecraft:empty",
   "elements": [
     {
       "weight": 1,
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "loot_n_explore:rogue_hideout",
+        "location": "lne_rogues:rogue_badlands_treasure",
         "projection": "rigid",
         "processors": "minecraft:empty"
       }

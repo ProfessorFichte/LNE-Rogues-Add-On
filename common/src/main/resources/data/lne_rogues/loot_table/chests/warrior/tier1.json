@@ -112,6 +112,11 @@
         },
         {
           "type": "minecraft:item",
+          "name": "rogues:stone_double_axe",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
           "name": "minecraft:crossbow",
           "weight": 3
         },

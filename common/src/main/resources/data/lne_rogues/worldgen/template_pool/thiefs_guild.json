@@ -1,12 +1,12 @@
 {
-  "name": "loot_n_explore:warrior_outpost",
+  "name": "lne_rogues:thiefs_guild",
   "fallback": "minecraft:empty",
   "elements": [
     {
       "weight": 1,
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "loot_n_explore:warrior_outpost",
+        "location": "lne_rogues:thiefs_guild/base_0",
         "projection": "rigid",
         "processors": "minecraft:empty"
       }

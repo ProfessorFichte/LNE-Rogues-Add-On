@@ -6,32 +6,32 @@
     },
     "type": "minecraft:random_spread",
     "salt": 12327675,
-    "separation": 14,
-    "spacing": 26
+    "separation": 15,
+    "spacing": 30
   },
   "structures": [
     {
-      "structure": "loot_n_explore:rogue_desert_treasure",
+      "structure": "lne_rogues:rogue_desert_treasure",
       "weight": 5
     },
     {
-      "structure": "loot_n_explore:rogue_badlands_treasure",
+      "structure": "lne_rogues:rogue_badlands_treasure",
       "weight": 5
     },
     {
-      "structure": "loot_n_explore:warrior_outpost",
+      "structure": "lne_rogues:warrior_outpost",
       "weight": 5
     },
     {
-      "structure": "loot_n_explore:warrior_turret",
+      "structure": "lne_rogues:warrior_turret",
       "weight": 3
     },
     {
-      "structure": "loot_n_explore:rogue_hideout",
+      "structure": "lne_rogues:rogue_hideout",
       "weight": 3
     },
     {
-      "structure": "loot_n_explore:thiefs_guild",
+      "structure": "lne_rogues:thiefs_guild",
       "weight": 1
     }
   ]

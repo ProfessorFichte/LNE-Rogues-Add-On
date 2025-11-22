@@ -1,12 +1,12 @@
 {
-  "name": "loot_n_explore:warrior_turret",
+  "name": "lne_rogues:rogue_hideout",
   "fallback": "minecraft:empty",
   "elements": [
     {
       "weight": 1,
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "loot_n_explore:warrior_turret",
+        "location": "lne_rogues:rogue_hideout",
         "projection": "rigid",
         "processors": "minecraft:empty"
       }

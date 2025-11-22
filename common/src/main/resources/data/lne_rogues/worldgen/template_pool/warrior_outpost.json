@@ -1,11 +1,12 @@
 {
+  "name": "lne_rogues:warrior_outpost",
   "fallback": "minecraft:empty",
   "elements": [
     {
       "weight": 1,
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "loot_n_explore:lne_rogues/entities/plains_villager",
+        "location": "lne_rogues:warrior_outpost",
         "projection": "rigid",
         "processors": "minecraft:empty"
       }
