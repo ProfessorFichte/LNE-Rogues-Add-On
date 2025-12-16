@@ -76,66 +76,82 @@ public class WeaponRegister {
         if (!tweaksConfig.value.disable_special_lne_weapons) {
             dagger("ender_dragon_dagger",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.AMETHYST_SHARD)), daggerAttackDamage)
+                    .translatedName("Void Sting")
                     .spell(dragonclaw)
                     .attribute(AttributeModifier.bonus(SpellSchools.ARCANE.id, weaponSpellPower));
             sickle("ender_dragon_sickle",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.AMETHYST_SHARD)), sickleAttackDamage)
+                    .translatedName("Dragon Sickle")
                     .spell(dragonclaw)
                     .attribute(AttributeModifier.bonus(SpellSchools.ARCANE.id, weaponSpellPower));
             glaive("ender_dragon_glaive",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.AMETHYST_SHARD)), glaiveAttackDamage)
+                    .translatedName("Ender Fang")
                     .spell(dragonclaw)
                     .attribute(AttributeModifier.bonus(SpellSchools.ARCANE.id, weaponSpellPower));
             axe("ender_dragon_double_axe",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.AMETHYST_SHARD)), doubleAxeAttackDamage)
+                    .translatedName("Dragonclaw")
                     .spell(dragonclaw)
                     .attribute(AttributeModifier.bonus(SpellSchools.ARCANE.id, weaponSpellPower));
             dagger("elder_guardian_dagger",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.PRISMARINE_SHARD)), daggerAttackDamage)
+                    .translatedName("Reef Dagger")
                     .spell(waterbomb)
                     .attribute(AttributeModifier.bonus(MoreSpellSchools.WATER.id, weaponSpellPower));
             sickle("elder_guardian_sickle",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.PRISMARINE_SHARD)), sickleAttackDamage)
+                    .translatedName("Abyssal Reaper")
                     .spell(waterbomb)
                     .attribute(AttributeModifier.bonus(MoreSpellSchools.WATER.id, weaponSpellPower));
             glaive("elder_guardian_glaive",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.PRISMARINE_SHARD)), glaiveAttackDamage)
+                    .translatedName("Sea Serpent's Fang")
                     .spell(waterbomb)
                     .attribute(AttributeModifier.bonus(MoreSpellSchools.WATER.id, weaponSpellPower));
             axe("elder_guardian_double_axe",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.PRISMARINE_SHARD)), doubleAxeAttackDamage)
+                    .translatedName("Tidal Cleaver")
                     .spell(waterbomb)
                     .attribute(AttributeModifier.bonus(MoreSpellSchools.WATER.id, weaponSpellPower));
             dagger("wither_dagger",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.BONE)), daggerAttackDamage)
+                    .translatedName("Soulrender")
                     .spell(wither_pulse)
                     .attribute(AttributeModifier.bonus(SpellSchools.SOUL.id, weaponSpellPower));
             sickle("wither_sickle",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.BONE)), sickleAttackDamage)
+                    .translatedName("Wither Reaper")
                     .spell(wither_pulse)
                     .attribute(AttributeModifier.bonus(SpellSchools.SOUL.id, weaponSpellPower));
             glaive("wither_glaive",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.BONE)), glaiveAttackDamage)
+                    .translatedName("Withered Glaive")
                     .spell(wither_pulse)
                     .attribute(AttributeModifier.bonus(SpellSchools.SOUL.id, weaponSpellPower));
             axe("wither_double_axe",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.BONE)), doubleAxeAttackDamage)
+                    .translatedName("Wither Double Axe")
                     .spell(wither_pulse)
                     .attribute(AttributeModifier.bonus(SpellSchools.SOUL.id, weaponSpellPower));
             dagger("glacial_dagger",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.ICE)), daggerAttackDamage)
+                    .translatedName("Frosted Shard")
                     .spell(avalanche)
                     .attribute(AttributeModifier.bonus(SpellSchools.FROST.id, weaponSpellPower));
             sickle("glacial_sickle",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.ICE)), sickleAttackDamage)
+                    .translatedName("Frost Reaper")
                     .spell(avalanche)
                     .attribute(AttributeModifier.bonus(SpellSchools.FROST.id, weaponSpellPower));
             glaive("glacial_glaive",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.ICE)), glaiveAttackDamage)
+                    .translatedName("Frozen Fang")
                     .spell(avalanche)
                     .attribute(AttributeModifier.bonus(SpellSchools.FROST.id, weaponSpellPower));
             axe("glacial_double_axe",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.ICE)), doubleAxeAttackDamage)
+                    .translatedName("Glacial Cleaver")
                     .spell(avalanche)
                     .attribute(AttributeModifier.bonus(SpellSchools.FROST.id, weaponSpellPower));
         }

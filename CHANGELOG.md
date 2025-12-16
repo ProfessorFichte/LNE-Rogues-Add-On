@@ -2,6 +2,7 @@
 - move all the structures from loot_n_explore to lne_rogues, so its more clearer that these structures come from this add on
 - again nerf spacing and increase exclusion from minecraft:villages
 - add stone double axe to warrior t1 loot table
+- add config values for second wind effects - missing health min and max range heal
 
 ### 1.0.4 - 1.21.1
 - Move to Architectury Enviroment for Multiloader
