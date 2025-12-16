@@ -1,7 +1,7 @@
 package com.lne_rogues;
 
 import com.lne_rogues.config.Default;
-import com.lne_rogues.effect.Effects;
+import com.lne_rogues.effect.LNERogues_Effects;
 import com.lne_rogues.item.WeaponRegister;
 import com.lne_rogues.config.TweaksConfig;
 import net.fabricmc.loader.api.FabricLoader;
@@ -20,7 +20,13 @@ public class LNE_Rogues_Mod{
 			.sanitize(true)
 			.build();
 	public static ConfigManager<TweaksConfig> tweaksConfig = new ConfigManager<TweaksConfig>
-			("tweaks", new TweaksConfig())
+			("tweaks_v0", new TweaksConfig())
+			.builder()
+			.setDirectory(MOD_ID)
+			.sanitize(true)
+			.build();
+	public static ConfigManager<ConfigFile.Effects> effectConfig = new ConfigManager<>
+			("effects", new ConfigFile.Effects())
 			.builder()
 			.setDirectory(MOD_ID)
 			.sanitize(true)
@@ -38,6 +44,8 @@ public class LNE_Rogues_Mod{
 		}
 	}
 	public static void registerEffects(){
-		Effects.register();
+		effectConfig.refresh();
+		LNERogues_Effects.register(effectConfig.value);
+		effectConfig.save();
 	}
 }

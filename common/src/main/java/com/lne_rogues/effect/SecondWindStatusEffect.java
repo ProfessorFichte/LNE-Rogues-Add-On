@@ -1,5 +1,6 @@
 package com.lne_rogues.effect;
 
+import com.lne_rogues.LNE_Rogues_Mod;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
@@ -24,6 +25,8 @@ public class SecondWindStatusEffect extends StatusEffect {
 
     public boolean applyUpdateEffect(LivingEntity livingEntity, int amplifier) {
         float missing_health = livingEntity.getMaxHealth() - livingEntity.getHealth();
+        float min_heal_range = LNE_Rogues_Mod.tweaksConfig.value.second_wind_missing_health_heal_min_range;
+        float max_heal_range = LNE_Rogues_Mod.tweaksConfig.value.second_wind_missing_health_heal_max_range;
         float randomHeal = new Random().nextFloat() * (0.35F - 0.1F) + 0.01F;
         float healAmount = missing_health * randomHeal;
         livingEntity.heal(healAmount);
@@ -41,7 +44,7 @@ public class SecondWindStatusEffect extends StatusEffect {
 
     public boolean canApplyUpdateEffect(int duration, int amplifier) {
         int i;
-        if (this == Effects.SECOND_WIND.effect) {
+        if (this == LNERogues_Effects.SECOND_WIND.effect) {
             i = 40;
             if (i > 0) {
                 return duration % i == 0;
