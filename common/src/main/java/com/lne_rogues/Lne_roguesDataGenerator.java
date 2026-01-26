@@ -20,6 +20,7 @@ public class Lne_roguesDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ModModelProvider::new);
 		pack.addProvider(ModRecipeProvider::new);
 		pack.addProvider(RoguesAbilityDatagen::new);
+		pack.addProvider(WeaponAttributesGenerator::new);
 
 	}
 

@@ -1,10 +1,10 @@
-### 1.0.5 - 1.21.1
-- move all the structures from loot_n_explore to lne_rogues, so its more clearer that these structures come from this add on
+# 1.0.5 - 1.21.1
+- move all the structures from loot_n_explore to lne_rogues, so it's clearer that these structures come from this add-on
 - again nerf spacing and increase exclusion from minecraft:villages
 - add stone double axe to warrior t1 loot table
 - add config values for second wind effects - missing health min and max range heal
 
-### 1.0.4 - 1.21.1
+# 1.0.4 - 1.21.1
 - Move to Architectury Enviroment for Multiloader
 - NeoForge Beta!
 - Update Weapon Spell Power
@@ -14,21 +14,21 @@
 - Warrior Loot Tables have some small integration with a War Archer Class Loot Table
 - nerf separation and spacing for the structures from this mod, to make them rarer
 
-### 1.0.3 - 1.21.1
+# 1.0.3 - 1.21.1
 - Dancing Dagger & Second Wind are now a T4 spell
 - they can now also be looted outside the classes structure
 
-### 1.0.2 - 1.21.1
+# 1.0.2 - 1.21.1
 - Spell Engine 1.7
 - Dancing Dagger now also inflicts the grievous wounds effect
 
-### 1.0.1 - 1.21.1
+# 1.0.1 - 1.21.1
 - Update License
 - Update Mod Icon
 
-### 1.0.0 - 1.21.1
-# Official 1.21.1 Release!
-# CHANGES
+# 1.0.0 - 1.21.1
+## Official 1.21.1 Release!
+### CHANGES
 - Passive Spells For the Weapons are now handled with the new Spell Engine Passive API
 - The Class related structures will now contain spell scrolls in their loot chests
 - Made some small loot table tweaks

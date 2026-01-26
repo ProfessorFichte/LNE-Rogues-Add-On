@@ -1,4 +1,4 @@
-// 1.21.1	2025-12-16T18:18:56.6594994	L&E Rogues-Add On/Model Definitions
+// 1.21.1	2026-01-26T11:13:29.0089986	L&E Rogues-Add On/Model Definitions
 047d86870ab31f4cce58b8757e7051a9c5dee746 assets\lne_rogues\models\item\glacial_double_axe.json
 f7be18da182469137ab6efb7bf823a054159abc6 assets\lne_rogues\models\item\ender_dragon_sickle.json
 5718a083154cc7192fed8e6af6ae8de7dac20496 assets\lne_rogues\models\item\glacial_sickle.json
@@ -8,8 +8,8 @@ fa5ce297fa696d861ab76c38e78e4217d72e8297 assets\lne_rogues\models\item\elder_gua
 059d7f2cc80f32d9b775688b9aae122b5136e5d3 assets\lne_rogues\models\item\elder_guardian_dagger.json
 8faa2d34e89ab723742f595a91e77e8400d79d76 assets\lne_rogues\models\item\wither_glaive.json
 002f0c5b2546f096016a50f336420fbdab14dadf assets\lne_rogues\models\item\ender_dragon_glaive.json
-f7ff54c63f2349597aebf0af33e6e26d3f09c6d2 assets\lne_rogues\models\item\wither_sickle.json
 ae57b9293a7a7e76f8059ce0499f76c0cfc9af2d assets\lne_rogues\models\item\glacial_glaive.json
+f7ff54c63f2349597aebf0af33e6e26d3f09c6d2 assets\lne_rogues\models\item\wither_sickle.json
 0734aff36fa3b1616be44e672d6516096c29f925 assets\lne_rogues\models\item\wither_double_axe.json
 0c6b4c315bfe64064337dbfbf9be46a87421f32d assets\lne_rogues\models\item\glacial_dagger.json
 2fb3dc67638001ae110c41f3995bfb3dd8f16e6f assets\lne_rogues\models\item\wither_dagger.json
