@@ -244,13 +244,13 @@
         {
           "type": "minecraft:item",
           "weight": 1,
-          "name": "spell_engine:scroll",
+          "name": "spell_engine:spell_scroll",
           "functions": [
             {
               "function": "more_rpg_classes:specific_spell_scroll_pool",
-              "spell_pools": ["#rogues:warrior","#archers_expansion:war_archer"],
-              "spell_tier_min": 2,
-              "spell_tier_max": 4,
+              "spell_pools": ["#rogues:spell_scroll/warrior"],
+              "spell_tier_min": 3,
+              "spell_tier_max": 5,
               "count": 1
             }
           ]
@@ -267,6 +267,20 @@
         {
           "type": "minecraft:empty",
           "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "spell_engine:spell_scroll",
+          "functions": [
+            {
+              "function": "more_rpg_classes:specific_spell_scroll_pool",
+              "spell_pools": ["#archers_expansion:spell_scroll/war_archer"],
+              "spell_tier_min": 3,
+              "spell_tier_max": 5,
+              "count": 1
+            }
+          ]
         },
         {
           "type": "more_rpg_classes:conditional_item",

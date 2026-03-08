@@ -1,16 +1,20 @@
 {
   "school": "spell_power:physical_melee",
-  "range": 20.0,
-  "tier": 4,
+  "range": 26.0,
+  "tier": 5,
   "learn": {},
   "active": {
     "cast": {
       "duration": 0.5,
-      "animation": "more_rpg_classes:dagger_throw_charge"
+      "animation": {
+        "id": "more_rpg_classes:dagger_throw_charge"
+      }
     }
   },
   "release": {
-    "animation": "more_rpg_classes:dagger_throw_release",
+    "animation": {
+      "id": "more_rpg_classes:dagger_throw_release"
+    },
     "sound": {
       "id": "rogues:throw"
     }
@@ -28,11 +32,11 @@
         },
         "perks": {
           "ricochet": 7,
-          "ricochet_range": 10.0
+          "ricochet_range": 16.0
         },
         "client_data": {
           "model": {
-            "model_id": "lne_rogues:projectile/dancing_dagger"
+            "model_id": "lne_rogues:spell_projectile/dancing_dagger"
           }
         }
       }
@@ -42,7 +46,9 @@
     {
       "action": {
         "type": "DAMAGE",
-        "damage": {}
+        "damage": {
+          "spell_power_coefficient": 1.2
+        }
       },
       "sound": {
         "id": "rogues:throw_impact"

@@ -378,11 +378,11 @@
         {
           "type": "minecraft:item",
           "weight": 1,
-          "name": "spell_engine:scroll",
+          "name": "spell_engine:spell_scroll",
           "functions": [
             {
               "function": "more_rpg_classes:specific_spell_scroll_pool",
-              "spell_pools": ["#rogues:rogue","#archers_expansion:deadeye"],
+              "spell_pools": ["#rogues:spell_scroll/rogue"],
               "spell_tier_min": 2,
               "spell_tier_max": 3,
               "count": 1
@@ -456,23 +456,16 @@
           "weight": 8
         },
         {
-          "type": "more_rpg_classes:conditional_item",
-          "item": "archers:composite_longbow",
-          "weight": 3,
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "spell_engine:spell_scroll",
           "functions": [
             {
-              "function": "enchant_with_levels",
-              "treasure": false,
-              "levels": {
-                "min": 1,
-                "max": 13
-              },
-              "conditions": [
-                {
-                  "condition": "random_chance",
-                  "chance": 0.35
-                }
-              ]
+              "function": "more_rpg_classes:specific_spell_scroll_pool",
+              "spell_pools": ["#archers_expansion:spell_scroll/deadeye"],
+              "spell_tier_min": 2,
+              "spell_tier_max": 3,
+              "count": 1
             }
           ]
         },

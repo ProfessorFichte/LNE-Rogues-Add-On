@@ -1,11 +1,13 @@
 {
   "school": "spell_power:physical_melee",
   "range": 0.0,
-  "tier": 4,
+  "tier": 5,
   "learn": {},
   "active": {},
   "release": {
-    "animation": "spell_engine:one_handed_area_release",
+    "animation": {
+      "id": "spell_engine:one_handed_area_release"
+    },
     "particles": [
       {
         "particle_id": "spell_engine:magic_stripe_float",
@@ -39,8 +41,8 @@
         "type": "STATUS_EFFECT",
         "status_effect": {
           "effect_id": "lne_rogues:second_wind",
-          "duration": 10.5,
-          "amplifier_power_multiplier": 0.2
+          "duration": 12.5,
+          "amplifier_power_multiplier": 0.25
         }
       }
     }

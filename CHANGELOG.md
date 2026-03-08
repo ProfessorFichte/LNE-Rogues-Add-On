@@ -1,3 +1,12 @@
+# 1.1.0 - 1.21.1
+**Update to use Spell Engine 1.9.0**
+- DISCLAIMER: All spell books and spell scrolls will be reset, due to major API changes.
+- Second Wind & Dancing Dagger are now Tier 5 Spell's
+- The Spells can now also be learned in the Spell Binding Table
+- The additional Spells also got slightly buffed
+- Small tweaks in the Loot Tables
+- Added the missing smithing recipes for the additional Weapons
+
 # 1.0.5 - 1.21.1
 - move all the structures from loot_n_explore to lne_rogues, so it's clearer that these structures come from this add-on
 - again nerf spacing and increase exclusion from minecraft:villages
