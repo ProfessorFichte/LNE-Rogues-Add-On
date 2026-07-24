@@ -20,7 +20,7 @@ public class LNE_Rogues_Mod{
 			.sanitize(true)
 			.build();
 	public static ConfigManager<TweaksConfig> tweaksConfig = new ConfigManager<TweaksConfig>
-			("tweaks_v1", new TweaksConfig())
+			("tweaks_v2", new TweaksConfig())
 			.builder()
 			.setDirectory(MOD_ID)
 			.sanitize(true)

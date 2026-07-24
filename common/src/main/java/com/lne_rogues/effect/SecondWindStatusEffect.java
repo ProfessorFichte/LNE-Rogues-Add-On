@@ -29,6 +29,8 @@ public class SecondWindStatusEffect extends StatusEffect {
         float max_heal_range = LNE_Rogues_Mod.tweaksConfig.value.second_wind_missing_health_heal_max_range;
         float randomHeal = new Random().nextFloat() * (max_heal_range - min_heal_range) + 0.01F;
         float healAmount = missing_health * randomHeal;
+        float maxHeal = LNE_Rogues_Mod.tweaksConfig.value.second_wind_max_heal_hearts * 2F;
+        healAmount = Math.min(healAmount, maxHeal);
         livingEntity.heal(healAmount);
         livingEntity.playSound(SoundEvents.ENTITY_PLAYER_BREATH,1.0F,0);
         if(!livingEntity.getWorld().isClient()){

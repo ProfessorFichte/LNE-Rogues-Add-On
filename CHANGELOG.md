@@ -1,3 +1,8 @@
+# 1.1.1 - 1.21.1
+- Adapt to Spell Engine 1.9.10+ API Changes
+**Balancing & Internal Changes:**
+- Second Wind now has a configurable max heal amount check in tweaks config
+
 # 1.1.0 - 1.21.1
 **Update to use Spell Engine 1.9.0**
 - DISCLAIMER: All spell books and spell scrolls will be reset, due to major API changes.

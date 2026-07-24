@@ -116,11 +116,9 @@ public class RoguesSpells {
 
         spell.deliver.projectile.projectile.client_data = new Spell.ProjectileData.Client();
         spell.deliver.projectile.projectile.client_data.travel_particles = new ParticleBatch[]{};
-        spell.deliver.projectile.projectile.client_data.model = new Spell.ProjectileModel();
-        spell.deliver.projectile.projectile.client_data.model.model_id = "lne_rogues:spell_projectile/dancing_dagger";
-        spell.deliver.projectile.projectile.client_data.model.light_emission = null;
-        spell.deliver.projectile.projectile.client_data.model.scale = 1.0F;
-        spell.deliver.projectile.projectile.client_data.model.orientation = Spell.ProjectileModel.Orientation.TOWARDS_MOTION;
+        var daggerModel = SpellBuilder.ProjectileModels.model("lne_rogues:spell_projectile/dancing_dagger", 1.0F);
+        daggerModel.fx.light_emission = null;
+        spell.deliver.projectile.projectile.client_data.composite_model = SpellBuilder.ProjectileModels.composite(daggerModel);
 
         var damage = SpellBuilder.Impacts.damage(1.2F);
         damage.sound = new Sound(Identifier.of("rogues:throw_impact"));

@@ -35,8 +35,14 @@
           "ricochet_range": 16.0
         },
         "client_data": {
-          "model": {
-            "model_id": "lne_rogues:spell_projectile/dancing_dagger"
+          "composite_model": {
+            "models": [
+              {
+                "fx": {
+                  "model_id": "lne_rogues:spell_projectile/dancing_dagger"
+                }
+              }
+            ]
           }
         }
       }
