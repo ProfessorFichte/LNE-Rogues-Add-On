@@ -1,6 +1,5 @@
 package com.lne_rogues.item;
 
-import more_rpg_loot.compat.spell_engine.LNE_Abilities;
 import more_rpg_loot.item.Group;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
@@ -10,6 +9,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.more_rpg_classes.custom.MoreSpellSchools;
+import net.more_rpg_classes.custom.MrpgLibSpells;
 import net.spell_engine.api.config.AttributeModifier;
 import net.spell_engine.api.config.WeaponConfig;
 import net.spell_engine.api.spell.container.SpellContainers;
@@ -25,7 +25,6 @@ import java.util.function.Supplier;
 
 import static com.lne_rogues.LNE_Rogues_Mod.MOD_ID;
 import static com.lne_rogues.LNE_Rogues_Mod.tweaksConfig;
-import static more_rpg_loot.compat.spell_engine.LNE_Weapons.*;
 
 public class WeaponRegister {
     public static final ArrayList<Weapon.Entry> entries = new ArrayList<>();
@@ -84,82 +83,82 @@ public class WeaponRegister {
             dagger("ender_dragon_dagger",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.AMETHYST_SHARD)), daggerAttackDamage)
                     .translatedName("Void Sting")
-                    .withAdditionalSpell(LNE_Abilities.dragonclaw.id().toString())
+                    .withAdditionalSpell(MrpgLibSpells.dragonclaw_melee.id().toString())
                     .attribute(AttributeModifier.bonus(SpellSchools.ARCANE.id, weaponSpellPower));
             sickle("ender_dragon_sickle",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.AMETHYST_SHARD)), sickleAttackDamage)
                     .translatedName("Dragon Sickle")
-                    .withAdditionalSpell(LNE_Abilities.dragonclaw.id().toString())
+                    .withAdditionalSpell(MrpgLibSpells.dragonclaw_melee.id().toString())
                     .attribute(AttributeModifier.bonus(SpellSchools.ARCANE.id, weaponSpellPower));
             glaive("ender_dragon_glaive",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.AMETHYST_SHARD)), glaiveAttackDamage)
                     .translatedName("Ender Fang")
-                    .withAdditionalSpell(LNE_Abilities.dragonclaw.id().toString())
+                    .withAdditionalSpell(MrpgLibSpells.dragonclaw_melee.id().toString())
                     .attribute(AttributeModifier.bonus(SpellSchools.ARCANE.id, weaponSpellPower));
             axe("ender_dragon_double_axe",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.AMETHYST_SHARD)), doubleAxeAttackDamage)
                     .translatedName("Dragonclaw")
-                    .withAdditionalSpell(LNE_Abilities.dragonclaw.id().toString())
+                    .withAdditionalSpell(MrpgLibSpells.dragonclaw_melee.id().toString())
                     .attribute(AttributeModifier.bonus(SpellSchools.ARCANE.id, weaponSpellPower));
             dagger("elder_guardian_dagger",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.PRISMARINE_SHARD)), daggerAttackDamage)
                     .translatedName("Reef Dagger")
-                    .withAdditionalSpell(LNE_Abilities.waterbomb.id().toString())
+                    .withAdditionalSpell(MrpgLibSpells.waterbomb_melee.id().toString())
                     .attribute(AttributeModifier.bonus(MoreSpellSchools.WATER.id, weaponSpellPower));
             sickle("elder_guardian_sickle",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.PRISMARINE_SHARD)), sickleAttackDamage)
                     .translatedName("Abyssal Reaper")
-                    .withAdditionalSpell(LNE_Abilities.waterbomb.id().toString())
+                    .withAdditionalSpell(MrpgLibSpells.waterbomb_melee.id().toString())
                     .attribute(AttributeModifier.bonus(MoreSpellSchools.WATER.id, weaponSpellPower));
             glaive("elder_guardian_glaive",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.PRISMARINE_SHARD)), glaiveAttackDamage)
                     .translatedName("Sea Serpent's Fang")
-                    .withAdditionalSpell(LNE_Abilities.waterbomb.id().toString())
+                    .withAdditionalSpell(MrpgLibSpells.waterbomb_melee.id().toString())
                     .attribute(AttributeModifier.bonus(MoreSpellSchools.WATER.id, weaponSpellPower));
             axe("elder_guardian_double_axe",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.PRISMARINE_SHARD)), doubleAxeAttackDamage)
                     .translatedName("Tidal Cleaver")
-                    .withAdditionalSpell(LNE_Abilities.waterbomb.id().toString())
+                    .withAdditionalSpell(MrpgLibSpells.waterbomb_melee.id().toString())
                     .attribute(AttributeModifier.bonus(MoreSpellSchools.WATER.id, weaponSpellPower));
             dagger("wither_dagger",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.BONE)), daggerAttackDamage)
                     .translatedName("Soulrender")
-                    .withAdditionalSpell(LNE_Abilities.wither_pulse.id().toString())
+                    .withAdditionalSpell(MrpgLibSpells.wither_pulse_melee.id().toString())
                     .attribute(AttributeModifier.bonus(SpellSchools.SOUL.id, weaponSpellPower));
             sickle("wither_sickle",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.BONE)), sickleAttackDamage)
                     .translatedName("Wither Reaper")
-                    .withAdditionalSpell(LNE_Abilities.wither_pulse.id().toString())
+                    .withAdditionalSpell(MrpgLibSpells.wither_pulse_melee.id().toString())
                     .attribute(AttributeModifier.bonus(SpellSchools.SOUL.id, weaponSpellPower));
             glaive("wither_glaive",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.BONE)), glaiveAttackDamage)
                     .translatedName("Withered Glaive")
-                    .withAdditionalSpell(LNE_Abilities.wither_pulse.id().toString())
+                    .withAdditionalSpell(MrpgLibSpells.wither_pulse_melee.id().toString())
                     .attribute(AttributeModifier.bonus(SpellSchools.SOUL.id, weaponSpellPower));
             axe("wither_double_axe",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.BONE)), doubleAxeAttackDamage)
                     .translatedName("Wither Double Axe")
-                    .withAdditionalSpell(LNE_Abilities.wither_pulse.id().toString())
+                    .withAdditionalSpell(MrpgLibSpells.wither_pulse_melee.id().toString())
                     .attribute(AttributeModifier.bonus(SpellSchools.SOUL.id, weaponSpellPower));
             dagger("glacial_dagger",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.ICE)), daggerAttackDamage)
                     .translatedName("Frosted Shard")
-                    .withAdditionalSpell(LNE_Abilities.avalanche.id().toString())
+                    .withAdditionalSpell(MrpgLibSpells.avalanche_melee.id().toString())
                     .attribute(AttributeModifier.bonus(SpellSchools.FROST.id, weaponSpellPower));
             sickle("glacial_sickle",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.ICE)), sickleAttackDamage)
                     .translatedName("Frost Reaper")
-                    .withAdditionalSpell(LNE_Abilities.avalanche.id().toString())
+                    .withAdditionalSpell(MrpgLibSpells.avalanche_melee.id().toString())
                     .attribute(AttributeModifier.bonus(SpellSchools.FROST.id, weaponSpellPower));
             glaive("glacial_glaive",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.ICE)), glaiveAttackDamage)
                     .translatedName("Frozen Fang")
-                    .withAdditionalSpell(LNE_Abilities.avalanche.id().toString())
+                    .withAdditionalSpell(MrpgLibSpells.avalanche_melee.id().toString())
                     .attribute(AttributeModifier.bonus(SpellSchools.FROST.id, weaponSpellPower));
             axe("glacial_double_axe",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.ICE)), doubleAxeAttackDamage)
                     .translatedName("Glacial Cleaver")
-                    .withAdditionalSpell(LNE_Abilities.avalanche.id().toString())
+                    .withAdditionalSpell(MrpgLibSpells.avalanche_melee.id().toString())
                     .attribute(AttributeModifier.bonus(SpellSchools.FROST.id, weaponSpellPower));
         }
         entries.forEach(entry -> entry.rarity = Rarity.RARE);
