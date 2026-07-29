@@ -1,3 +1,6 @@
+# 1.1.2 - 1.21.1
+- Add a proper Spell Tooltip for Second Wind
+
 # 1.1.1 - 1.21.1
 - Adapt to Spell Engine 1.9.10+ API Changes
 **Balancing & Internal Changes:**

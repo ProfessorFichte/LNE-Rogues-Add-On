@@ -19,6 +19,6 @@
   "item.lne_rogues.wither_sickle": "Wither Reaper",
   "spell.lne_rogues.dancing_dagger.description": "Throw a dagger that ricochets between enemies, dealing {damage} damage and applying grievous wounds for {effect_duration} seconds.",
   "spell.lne_rogues.dancing_dagger.name": "Dancing Dagger",
-  "spell.lne_rogues.second_wind.description": "Recover your breath and gain a temporary boost based on your max health for {effect_duration} seconds.",
+  "spell.lne_rogues.second_wind.description": "Recover your breath, healing {heal_range} of your missing health every 2 seconds, and gain {absorption_percent} of your max health as absorption, for {effect_duration} seconds.",
   "spell.lne_rogues.second_wind.name": "Second Wind"
 }

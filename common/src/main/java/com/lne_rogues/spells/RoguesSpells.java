@@ -1,5 +1,6 @@
 package com.lne_rogues.spells;
 
+import com.lne_rogues.LNE_Rogues_Mod;
 import com.lne_rogues.effect.LNERogues_Effects;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.util.Identifier;
@@ -9,6 +10,7 @@ import net.spell_engine.api.spell.Spell;
 import net.spell_engine.api.spell.fx.ParticleBatch;
 import net.spell_engine.api.spell.fx.PlayerAnimation;
 import net.spell_engine.api.spell.fx.Sound;
+import net.spell_engine.client.gui.SpellTooltip;
 import net.spell_engine.client.util.Color;
 import net.spell_engine.fx.SpellEngineParticles;
 import org.jetbrains.annotations.Nullable;
@@ -20,7 +22,7 @@ import static com.lne_rogues.LNE_Rogues_Mod.MOD_ID;
 
 public class RoguesSpells {
     public record Entry(Identifier id, Spell spell, String title, String description,
-                        @Nullable net.spell_engine.client.gui.SpellTooltip.DescriptionMutator mutator) {
+                        @Nullable SpellTooltip.DescriptionMutator mutator) {
     }
 
     public static final List<Entry> entries = new ArrayList<>();
@@ -35,7 +37,8 @@ public class RoguesSpells {
     private static Entry second_wind() {
         var id = Identifier.of(MOD_ID, "second_wind");
         var title = "Second Wind";
-        var description = "Recover your breath and gain a temporary boost based on your max health for {effect_duration} seconds.";
+        var description = "Recover your breath, healing {heal_range} of your missing health every 2 seconds, " +
+                "and gain {absorption_percent} of your max health as absorption, for {effect_duration} seconds.";
 
         var spell = SpellBuilder.createSpellActive();
         spell.school = ExternalSpellSchools.PHYSICAL_MELEE;
@@ -76,7 +79,18 @@ public class RoguesSpells {
         SpellBuilder.Cost.cooldown(spell, 30.0F);
         spell.cost.exhaust = 0.5F;
 
-        return new Entry(id, spell, title, description, null);
+        SpellTooltip.DescriptionMutator mutator = (args) -> {
+            var config = LNE_Rogues_Mod.tweaksConfig.value;
+            var healRange = SpellTooltip.formattedRange(
+                    config.second_wind_missing_health_heal_min_range * 100,
+                    config.second_wind_missing_health_heal_max_range * 100) + "%";
+            var absorptionPercent = SpellTooltip.percent(effect.action.status_effect.amplifier_power_multiplier);
+            return args.description()
+                    .replace("{heal_range}", healRange)
+                    .replace("{absorption_percent}", absorptionPercent);
+        };
+
+        return new Entry(id, spell, title, description, mutator);
     }
 
     public static Entry dancing_dagger = add(dancing_dagger());
