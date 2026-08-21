@@ -7,22 +7,21 @@ import net.minecraft.util.Identifier;
 import net.spell_engine.api.datagen.SpellBuilder;
 import net.spell_engine.api.spell.ExternalSpellSchools;
 import net.spell_engine.api.spell.Spell;
-import net.spell_engine.api.spell.fx.ParticleBatch;
+import net.spell_engine.api.spell.fx.Fx;
+import net.spell_engine.api.spell.fx.ParticleGroup;
+import net.spell_engine.api.spell.fx.ParticleGroupBuilder;
 import net.spell_engine.api.spell.fx.PlayerAnimation;
 import net.spell_engine.api.spell.fx.Sound;
-import net.spell_engine.client.gui.SpellTooltip;
+import net.spell_engine.api.spell.tooltip.TooltipTokens;
 import net.spell_engine.client.util.Color;
 import net.spell_engine.fx.SpellEngineParticles;
-import org.jetbrains.annotations.Nullable;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import static com.lne_rogues.LNE_Rogues_Mod.MOD_ID;
 
 public class RoguesSpells {
-    public record Entry(Identifier id, Spell spell, String title, String description,
-                        @Nullable SpellTooltip.DescriptionMutator mutator) {
+    public record Entry(Identifier id, Spell spell, String title, String description) {
     }
 
     public static final List<Entry> entries = new ArrayList<>();
@@ -50,22 +49,22 @@ public class RoguesSpells {
 
         spell.release.animation = PlayerAnimation.of("spell_engine:one_handed_area_release");
         spell.release.sound = Sound.withVolume(Identifier.of("entity.player.breath"), 1.5F);
-        var releaseParticle1 = new ParticleBatch(
-                SpellEngineParticles.MagicParticles.get(
-                        SpellEngineParticles.MagicParticles.Shape.STRIPE,
-                        SpellEngineParticles.MagicParticles.Motion.FLOAT).id().toString(),
-            ParticleBatch.Shape.PILLAR, ParticleBatch.Origin.LAUNCH_POINT,
-            20.0F, 0.01F, 0.2F
-        ).color(Color.RAGE.toRGBA());
-        releaseParticle1.extent = 1.0F;
-        spell.release.particles = new ParticleBatch[]{
-            releaseParticle1,
-            new ParticleBatch(
-                    SpellEngineParticles.smoke_medium.id().toString(),
-                ParticleBatch.Shape.CIRCLE, ParticleBatch.Origin.FEET,
-                10.0F, 0.15F, 0.15F
-            ).preSpawnTravel(1)
-        };
+        // V1 `MagicParticles.get(STRIPE, FLOAT)` - the 32 baked `magic_<shape>_<motion>` ids
+        // collapsed to 8 entries plus a motion payload, so the motion is chosen here instead.
+        var risingStripes = ParticleGroupBuilder
+                .magic(SpellEngineParticles.magic_stripe, ParticleGroup.Motion.FLOAT, Color.RAGE)
+                .batch(b -> b.shape(ParticleGroup.Shape.PILLAR)
+                        .anchor(ParticleGroup.Anchor.LAUNCH_POINT)
+                        .count(20F).speed(0.01F, 0.2F)
+                        .extent(1.0F));
+        // V1 `Origin.FEET` is `height * 0.1`, not `0`.
+        var groundSmoke = ParticleGroupBuilder
+                .of(SpellEngineParticles.smoke_medium)
+                .batch(b -> b.shape(ParticleGroup.Shape.CIRCLE)
+                        .verticalOrigin(ParticleGroupBuilder.Batches.FEET)
+                        .count(10F).speed(0.15F, 0.15F)
+                        .preTravel(1F));
+        spell.release.visuals = Fx.Visuals.of(risingStripes, groundSmoke);
 
         spell.target.type = Spell.Target.Type.CASTER;
 
@@ -79,18 +78,7 @@ public class RoguesSpells {
         SpellBuilder.Cost.cooldown(spell, 30.0F);
         spell.cost.exhaust = 0.5F;
 
-        SpellTooltip.DescriptionMutator mutator = (args) -> {
-            var config = LNE_Rogues_Mod.tweaksConfig.value;
-            var healRange = SpellTooltip.formattedRange(
-                    config.second_wind_missing_health_heal_min_range * 100,
-                    config.second_wind_missing_health_heal_max_range * 100) + "%";
-            var absorptionPercent = SpellTooltip.percent(effect.action.status_effect.amplifier_power_multiplier);
-            return args.description()
-                    .replace("{heal_range}", healRange)
-                    .replace("{absorption_percent}", absorptionPercent);
-        };
-
-        return new Entry(id, spell, title, description, mutator);
+        return new Entry(id, spell, title, description);
     }
 
     public static Entry dancing_dagger = add(dancing_dagger());
@@ -107,7 +95,7 @@ public class RoguesSpells {
         spell.active.cast = new Spell.Active.Cast();
         spell.active.cast.duration = 0.5F;
         spell.active.cast.animation = PlayerAnimation.of("more_rpg_classes:dagger_throw_charge");
-        spell.active.cast.particles = new ParticleBatch[]{};
+        spell.active.cast.particles = List.of();
 
         spell.release.animation = PlayerAnimation.of("more_rpg_classes:dagger_throw_release");
         spell.release.sound = new Sound(Identifier.of("rogues:throw"));
@@ -129,7 +117,7 @@ public class RoguesSpells {
         spell.deliver.projectile.projectile.travel_sound = new Sound(Identifier.of("rogues:throw"));
 
         spell.deliver.projectile.projectile.client_data = new Spell.ProjectileData.Client();
-        spell.deliver.projectile.projectile.client_data.travel_particles = new ParticleBatch[]{};
+        spell.deliver.projectile.projectile.client_data.travel_particles = List.of();
         var daggerModel = SpellBuilder.ProjectileModels.model("lne_rogues:spell_projectile/dancing_dagger", 1.0F);
         daggerModel.fx.light_emission = null;
         spell.deliver.projectile.projectile.client_data.composite_model = SpellBuilder.ProjectileModels.composite(daggerModel);
@@ -140,19 +128,58 @@ public class RoguesSpells {
         var grievousWounds = SpellBuilder.Impacts.effectSet("more_rpg_classes:grievous_wounds", 5.0F, 0);
         grievousWounds.action.status_effect.amplifier_power_multiplier = 0.1F;
         grievousWounds.action.status_effect.show_particles = false;
-        grievousWounds.particles = new ParticleBatch[]{
-            new ParticleBatch(
-                    SpellEngineParticles.smoke_medium.id().toString(),
-                ParticleBatch.Shape.SPHERE, ParticleBatch.Origin.CENTER,
-                5.0F, 0.2F, 0.2F
-            ).color(Color.RAGE.toRGBA())
-        };
+        // V1 `Origin.CENTER` is the V2 default `vertical_origin` of 0.5, so it is simply omitted.
+        grievousWounds.visuals = Fx.Visuals.of(
+                ParticleGroupBuilder
+                        .of(SpellEngineParticles.smoke_medium)
+                        .color(Color.RAGE)
+                        .batch(b -> b.shape(ParticleGroup.Shape.SPHERE)
+                                .count(5F).speed(0.2F, 0.2F)));
 
         spell.impacts = List.of(damage, grievousWounds);
 
         SpellBuilder.Cost.cooldown(spell, 15.0F);
         spell.cost.exhaust = 0.5F;
 
-        return new Entry(id, spell, title, description, null);
+        return new Entry(id, spell, title, description);
+    }
+
+    /// Description values that no declarative `{token}` expresses, registered through the
+    /// server-safe `TooltipTokens` (`SpellTooltip.DescriptionMutator` is client-only and
+    /// deprecated). Called from client init; every other value in these descriptions is a
+    /// built-in token.
+    ///
+    /// - `{heal_range}` comes from this mod's own tweaks config, not from the spell at all.
+    /// - `{absorption_percent}` is the STATUS_EFFECT impact's `amplifier_power_multiplier`.
+    ///   `{effect|...}` reads a status effect's *attribute modifier* - here `max_absorption +2`,
+    ///   a different number - and `{effect_amplifier}` renders `amplifier + 1`. Neither says
+    ///   "25% of max health", so this stays custom. Read off the live registry entry, so a
+    ///   datapack override of the spell is now reflected; the V1 mutator closed over the
+    ///   build-time object and could not be.
+    public static void registerTooltipTokens() {
+        TooltipTokens.registerCustom(second_wind.id(), args -> {
+            var config = LNE_Rogues_Mod.tweaksConfig.value;
+            var healRange = formattedRange(
+                    config.second_wind_missing_health_heal_min_range * 100,
+                    config.second_wind_missing_health_heal_max_range * 100) + "%";
+            var description = args.description().replace("{heal_range}", healRange);
+            for (var impact : args.spellEntry().value().impacts) {
+                if (impact.action != null && impact.action.status_effect != null) {
+                    description = description.replace("{absorption_percent}",
+                            TooltipTokens.percent(impact.action.status_effect.amplifier_power_multiplier));
+                    break;
+                }
+            }
+            return description;
+        });
+    }
+
+    /// `SpellTooltip.formattedRange`, inlined: that class is client-only, and this one is a data
+    /// definition that has to stay loadable on a dedicated server.
+    private static String formattedRange(float min, float max) {
+        if (min == max) {
+            return TooltipTokens.formattedNumber(min);
+        }
+        return TooltipTokens.formattedNumber(min) + " - " + TooltipTokens.formattedNumber(max);
     }
 }

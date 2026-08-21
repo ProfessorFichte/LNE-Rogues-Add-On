@@ -8,27 +8,38 @@
     "animation": {
       "id": "spell_engine:one_handed_area_release"
     },
-    "particles": [
-      {
-        "particle_id": "spell_engine:magic_stripe_float",
-        "origin": "LAUNCH_POINT",
-        "shape": "PILLAR",
-        "count": 20.0,
-        "min_speed": 0.01,
-        "max_speed": 0.2,
-        "extent": 1.0,
-        "color_rgba": 3208659199
-      },
-      {
-        "particle_id": "spell_engine:smoke_medium",
-        "origin": "FEET",
-        "shape": "CIRCLE",
-        "count": 10.0,
-        "min_speed": 0.15,
-        "max_speed": 0.15,
-        "pre_spawn_travel": 1.0
-      }
-    ],
+    "visuals": {
+      "particles": [
+        {
+          "id": "spell_engine:magic_stripe",
+          "appearance": {
+            "color": 3208659199,
+            "motion": "FLOAT"
+          },
+          "batch": {
+            "count": 20.0,
+            "shape": "PILLAR",
+            "anchor": "LAUNCH_POINT",
+            "min_speed": 0.01,
+            "max_speed": 0.2,
+            "extent": 1.0
+          }
+        },
+        {
+          "id": "spell_engine:smoke_medium",
+          "appearance": {},
+          "batch": {
+            "count": 10.0,
+            "shape": "CIRCLE",
+            "anchor": "ENTITY",
+            "vertical_origin": 0.1,
+            "min_speed": 0.15,
+            "max_speed": 0.15,
+            "pre_travel": 1.0
+          }
+        }
+      ]
+    },
     "sound": {
       "id": "minecraft:entity.player.breath",
       "volume": 1.5
