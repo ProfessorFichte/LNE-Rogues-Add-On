@@ -21,15 +21,6 @@ public class SecondWindStatusEffect extends StatusEffect {
         super(category, color);
         this.healthPerStack = 2  ;
     }
-    /// `spell_engine:weakness_smoke` was retired in 1.10 - it was `smoke_medium` carrying a baked
-    /// tint, so the changelog's instruction is to use `smoke_medium` and set the tint per use.
-    /// V1's `weakness_smoke` factory differed from `smoke_medium` in exactly three values, all
-    /// restored here; everything else it set (random darkening -> `color_variance 0.65`, velocity
-    /// multiplier 0.8 -> `drag 0.8`, glow off, the vanilla default size and lifetime) is already
-    /// the `smoke_medium` entry's own default.
-    /// - colour `0x993333`
-    /// - alpha `0.7` absolute. Builder opacity *multiplies* the entry's own `0.8`, hence `0.875`.
-    /// - gravity `+0.01` (falls) instead of the entry's `-0.01` (rises)
     private static final ParticleGroup particles = ParticleGroupBuilder
             .of(SpellEngineParticles.smoke_medium)
             .color(Color.from(0x993333))

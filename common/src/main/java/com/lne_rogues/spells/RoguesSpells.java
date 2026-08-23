@@ -49,15 +49,12 @@ public class RoguesSpells {
 
         spell.release.animation = PlayerAnimation.of("spell_engine:one_handed_area_release");
         spell.release.sound = Sound.withVolume(Identifier.of("entity.player.breath"), 1.5F);
-        // V1 `MagicParticles.get(STRIPE, FLOAT)` - the 32 baked `magic_<shape>_<motion>` ids
-        // collapsed to 8 entries plus a motion payload, so the motion is chosen here instead.
         var risingStripes = ParticleGroupBuilder
                 .magic(SpellEngineParticles.magic_stripe, ParticleGroup.Motion.FLOAT, Color.RAGE)
                 .batch(b -> b.shape(ParticleGroup.Shape.PILLAR)
                         .anchor(ParticleGroup.Anchor.LAUNCH_POINT)
                         .count(20F).speed(0.01F, 0.2F)
                         .extent(1.0F));
-        // V1 `Origin.FEET` is `height * 0.1`, not `0`.
         var groundSmoke = ParticleGroupBuilder
                 .of(SpellEngineParticles.smoke_medium)
                 .batch(b -> b.shape(ParticleGroup.Shape.CIRCLE)
@@ -128,7 +125,6 @@ public class RoguesSpells {
         var grievousWounds = SpellBuilder.Impacts.effectSet("more_rpg_classes:grievous_wounds", 5.0F, 0);
         grievousWounds.action.status_effect.amplifier_power_multiplier = 0.1F;
         grievousWounds.action.status_effect.show_particles = false;
-        // V1 `Origin.CENTER` is the V2 default `vertical_origin` of 0.5, so it is simply omitted.
         grievousWounds.visuals = Fx.Visuals.of(
                 ParticleGroupBuilder
                         .of(SpellEngineParticles.smoke_medium)
@@ -144,18 +140,6 @@ public class RoguesSpells {
         return new Entry(id, spell, title, description);
     }
 
-    /// Description values that no declarative `{token}` expresses, registered through the
-    /// server-safe `TooltipTokens` (`SpellTooltip.DescriptionMutator` is client-only and
-    /// deprecated). Called from client init; every other value in these descriptions is a
-    /// built-in token.
-    ///
-    /// - `{heal_range}` comes from this mod's own tweaks config, not from the spell at all.
-    /// - `{absorption_percent}` is the STATUS_EFFECT impact's `amplifier_power_multiplier`.
-    ///   `{effect|...}` reads a status effect's *attribute modifier* - here `max_absorption +2`,
-    ///   a different number - and `{effect_amplifier}` renders `amplifier + 1`. Neither says
-    ///   "25% of max health", so this stays custom. Read off the live registry entry, so a
-    ///   datapack override of the spell is now reflected; the V1 mutator closed over the
-    ///   build-time object and could not be.
     public static void registerTooltipTokens() {
         TooltipTokens.registerCustom(second_wind.id(), args -> {
             var config = LNE_Rogues_Mod.tweaksConfig.value;
@@ -174,8 +158,6 @@ public class RoguesSpells {
         });
     }
 
-    /// `SpellTooltip.formattedRange`, inlined: that class is client-only, and this one is a data
-    /// definition that has to stay loadable on a dedicated server.
     private static String formattedRange(float min, float max) {
         if (min == max) {
             return TooltipTokens.formattedNumber(min);
