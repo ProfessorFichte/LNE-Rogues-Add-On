@@ -4,7 +4,7 @@ import com.google.gson.JsonObject;
 import com.lne_rogues.item.WeaponRegister;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-import net.fabricmc.loader.api.FabricLoader;
+import net.spell_engine.Platform;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.item.Item;
@@ -24,7 +24,7 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-        if (!FabricLoader.getInstance().isModLoaded("spell_engine")) {
+        if (!Platform.util().isModLoaded("spell_engine")) {
             return;
         }
 
