@@ -3,6 +3,7 @@ package com.lne_rogues.spells;
 import com.lne_rogues.LNE_Rogues_Mod;
 import com.lne_rogues.effect.LNERogues_Effects;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 import net.spell_engine.api.datagen.SpellBuilder;
 import net.spell_engine.api.spell.ExternalSpellSchools;
@@ -34,7 +35,7 @@ public class RoguesSpells {
     // ===== SPELL DEFINITIONS =====
     public static Entry second_wind = add(second_wind());
     private static Entry second_wind() {
-        var id = Identifier.of(MOD_ID, "second_wind");
+        var id = new Identifier(MOD_ID, "second_wind");
         var title = "Second Wind";
         var description = "Recover your breath, healing {heal_range} of your missing health every 2 seconds, " +
                 "and gain {absorption_percent} of your max health as absorption, for {effect_duration} seconds.";
@@ -48,7 +49,7 @@ public class RoguesSpells {
         spell.active.cast.duration = 0.0F;
 
         spell.release.animation = PlayerAnimation.of("spell_engine:one_handed_area_release");
-        spell.release.sound = Sound.withVolume(Identifier.of("entity.player.breath"), 1.5F);
+        spell.release.sound = Sound.withVolume(new Identifier("entity.player.breath"), 1.5F);
         var risingStripes = ParticleGroupBuilder
                 .magic(SpellEngineParticles.magic_stripe, ParticleGroup.Motion.FLOAT, Color.RAGE)
                 .batch(b -> b.shape(ParticleGroup.Shape.PILLAR)
@@ -66,7 +67,8 @@ public class RoguesSpells {
         spell.target.type = Spell.Target.Type.CASTER;
 
         var effect = SpellBuilder.Impacts.effectSet(LNERogues_Effects.SECOND_WIND.id.toString(), 12.5F, 0);
-        effect.attribute = EntityAttributes.GENERIC_MAX_HEALTH.getIdAsString();
+        // 1.20.1: EntityAttribute has no getIdAsString(); the attribute is a raw value here.
+        effect.attribute = Registries.ATTRIBUTE.getId(EntityAttributes.GENERIC_MAX_HEALTH).toString();
         effect.action.status_effect.amplifier_power_multiplier = 0.25F;
         effect.action.status_effect.show_particles = false;
 
@@ -80,7 +82,7 @@ public class RoguesSpells {
 
     public static Entry dancing_dagger = add(dancing_dagger());
     private static Entry dancing_dagger() {
-        var id = Identifier.of(MOD_ID, "dancing_dagger");
+        var id = new Identifier(MOD_ID, "dancing_dagger");
         var title = "Dancing Dagger";
         var description = "Throw a dagger that ricochets between enemies, dealing {damage} damage and applying grievous wounds for {effect_duration} seconds.";
 
@@ -95,7 +97,7 @@ public class RoguesSpells {
         spell.active.cast.particles = List.of();
 
         spell.release.animation = PlayerAnimation.of("more_rpg_classes:dagger_throw_release");
-        spell.release.sound = new Sound(Identifier.of("rogues:throw"));
+        spell.release.sound = new Sound(new Identifier("rogues:throw"));
 
         spell.deliver = new Spell.Delivery();
         spell.deliver.type = Spell.Delivery.Type.PROJECTILE;
@@ -111,7 +113,7 @@ public class RoguesSpells {
         spell.deliver.projectile.projectile.perks.ricochet_range = 16.0F;
 
         spell.deliver.projectile.projectile.travel_sound_interval = 8;
-        spell.deliver.projectile.projectile.travel_sound = new Sound(Identifier.of("rogues:throw"));
+        spell.deliver.projectile.projectile.travel_sound = new Sound(new Identifier("rogues:throw"));
 
         spell.deliver.projectile.projectile.client_data = new Spell.ProjectileData.Client();
         spell.deliver.projectile.projectile.client_data.travel_particles = List.of();
@@ -120,7 +122,7 @@ public class RoguesSpells {
         spell.deliver.projectile.projectile.client_data.composite_model = SpellBuilder.ProjectileModels.composite(daggerModel);
 
         var damage = SpellBuilder.Impacts.damage(1.2F);
-        damage.sound = new Sound(Identifier.of("rogues:throw_impact"));
+        damage.sound = new Sound(new Identifier("rogues:throw_impact"));
 
         var grievousWounds = SpellBuilder.Impacts.effectSet("more_rpg_classes:grievous_wounds", 5.0F, 0);
         grievousWounds.action.status_effect.amplifier_power_multiplier = 0.1F;

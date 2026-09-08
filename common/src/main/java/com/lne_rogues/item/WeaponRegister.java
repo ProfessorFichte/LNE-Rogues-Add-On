@@ -1,6 +1,6 @@
 package com.lne_rogues.item;
 
-import more_rpg_loot.item.Group;
+import com.lne_rogues.compat.LootNExploreCompat;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterials;
@@ -37,7 +37,7 @@ public class WeaponRegister {
     }
 
     private static Supplier<Ingredient> ingredient(String idString, boolean requirement, Item fallback) {
-        var id = Identifier.of(idString);
+        var id = new Identifier(idString);
         if (requirement) {
             return () -> {
                 return Ingredient.ofItems(fallback);
@@ -162,6 +162,6 @@ public class WeaponRegister {
                     .attribute(AttributeModifier.bonus(SpellSchools.FROST.id, weaponSpellPower));
         }
         entries.forEach(entry -> entry.rarity = Rarity.RARE);
-        Weapon.register(configs, entries, Group.RPG_LOOT_KEY);
+        Weapon.register(configs, entries, LootNExploreCompat.itemGroupKey());
     }
 }

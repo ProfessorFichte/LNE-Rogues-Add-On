@@ -2,6 +2,7 @@ package com.lne_rogues.effect;
 
 import com.lne_rogues.LNE_Rogues_Mod;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.sound.SoundEvents;
@@ -31,7 +32,9 @@ public class SecondWindStatusEffect extends StatusEffect {
                     .count(3F).speed(0F, 0.01F).extent(0.5F));
 
 
-    public boolean applyUpdateEffect(LivingEntity livingEntity, int amplifier) {
+    // 1.20.1: applyUpdateEffect returns void (it returns boolean from 1.21 onwards).
+    @Override
+    public void applyUpdateEffect(LivingEntity livingEntity, int amplifier) {
         float missing_health = livingEntity.getMaxHealth() - livingEntity.getHealth();
         float min_heal_range = LNE_Rogues_Mod.tweaksConfig.value.second_wind_missing_health_heal_min_range;
         float max_heal_range = LNE_Rogues_Mod.tweaksConfig.value.second_wind_missing_health_heal_max_range;
@@ -44,14 +47,16 @@ public class SecondWindStatusEffect extends StatusEffect {
         if(!livingEntity.getWorld().isClient()){
             ParticleHelper.sendBatches(livingEntity, List.of(particles));
         }
-        return true;
     }
 
-    public void onApplied(LivingEntity entity, int amplifier) {
+    // 1.20.1: onApplied takes the entity's AttributeContainer as the second argument.
+    @Override
+    public void onApplied(LivingEntity entity, AttributeContainer attributes, int amplifier) {
         entity.setAbsorptionAmount(Math.max(entity.getAbsorptionAmount(), healthPerStack  * (1 + amplifier )));
-        super.onApplied(entity, amplifier);
+        super.onApplied(entity, attributes, amplifier);
     }
 
+    @Override
     public boolean canApplyUpdateEffect(int duration, int amplifier) {
         return duration % 40 == 0;
     }

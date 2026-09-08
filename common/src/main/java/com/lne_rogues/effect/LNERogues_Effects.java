@@ -1,10 +1,7 @@
 package com.lne_rogues.effect;
 
-import net.minecraft.entity.attribute.EntityAttributeModifier;
-import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.util.Identifier;
-import net.spell_engine.rpg_series.config.AttributeModifier;
 import net.spell_engine.rpg_series.config.ConfigFile;
 import net.spell_engine.rpg_series.config.EffectConfig;
 import net.spell_engine.api.effect.*;
@@ -23,18 +20,16 @@ public class LNERogues_Effects {
     }
 
     public static Effects.Entry SECOND_WIND = add(new Effects.Entry(
-            Identifier.of(MOD_ID, "second_wind"),
+            new Identifier(MOD_ID, "second_wind"),
             "Second Wind",
             "When applied, gain 20% of your max health as absorption. You can recover 10-35% of your missing health every 2 seconds.",
             new SecondWindStatusEffect(StatusEffectCategory.BENEFICIAL, 0x800000),
-            new EffectConfig(
-                    List.of(new AttributeModifier(
-                            EntityAttributes.GENERIC_MAX_ABSORPTION.getIdAsString(),
-                            2,
-                            EntityAttributeModifier.Operation.ADD_VALUE
-                    )
-            )
-    )));
+            // 1.20.1 has no `minecraft:generic.max_absorption` attribute (added in 1.21), so the
+            // `+2 max absorption` modifier the 1.21.1 branch carries is dropped. The absorption
+            // itself is unaffected: SecondWindStatusEffect#onApplied sets it imperatively, and on
+            // this game version `setAbsorptionAmount` has no attribute-driven cap to raise.
+            EffectConfig.EMPTY
+    ));
 
     public static void register(ConfigFile.Effects config) {
         for (var entry : entries) {
