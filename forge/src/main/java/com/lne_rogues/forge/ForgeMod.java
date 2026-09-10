@@ -1,6 +1,9 @@
 package com.lne_rogues.forge;
 
 import com.lne_rogues.LNE_Rogues_Mod;
+import com.lne_rogues.effect.LNERogues_Effects;
+import com.lne_rogues.item.WeaponRegister;
+import net.spell_engine.Platform;
 import com.lne_rogues.forge.client.ForgeClient;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraftforge.api.distmarker.Dist;
@@ -12,8 +15,14 @@ import net.minecraftforge.registries.RegisterEvent;
 
 /// Forge 47 entrypoint (1.20.1 port of the NeoForge entrypoint).
 ///
-/// Forge locks every vanilla registry outside its own `RegisterEvent` window, so each `registerX()`
-/// call sits inside the window of the registry it writes to. Measured window order on 47.4.22:
+/// Registration goes through the `RegisterHelper` that `RegisterEvent` hands out, NOT through
+/// `Registry.register`. Forge only clears the vanilla `NamespacedWrapper`'s lock from 47.4.0 onward;
+/// on 47.0-47.3 and NeoForge 1.20.1 it stays locked even inside the correct window, so a plain
+/// `Registry.register` there throws `Can not register to a locked registry`. `mods.toml` declares
+/// `[47,)`, so those are supported configurations.
+///
+/// The loops below duplicate what `common` runs on Fabric, on purpose - the whole workaround stays
+/// inside `forge/` and the Fabric path is untouched. Measured window order on 47.4.22:
 /// `sound_event -> block -> attribute -> mob_effect -> ... -> item -> ...`, so STATUS_EFFECT is
 /// served before ITEM.
 ///
@@ -39,7 +48,22 @@ public final class ForgeMod {
     }
 
     public static void register(RegisterEvent event) {
-        event.register(RegistryKeys.STATUS_EFFECT, reg -> LNE_Rogues_Mod.registerEffects());
-        event.register(RegistryKeys.ITEM, reg -> LNE_Rogues_Mod.registerItems());
+        event.register(RegistryKeys.STATUS_EFFECT, helper -> {
+            LNE_Rogues_Mod.effectConfig.refresh();
+            LNERogues_Effects.effectsToRegister(LNE_Rogues_Mod.effectConfig.value)
+                    .forEach(helper::register);
+            LNE_Rogues_Mod.effectConfig.save();
+        });
+
+        // Loot & Explore is Fabric-only, so this block registers nothing on Forge today - it mirrors
+        // `LNE_Rogues_Mod.registerItems()` exactly so it stays correct if that ever changes.
+        event.register(RegistryKeys.ITEM, helper -> {
+            if (Platform.util().isModLoaded("loot_n_explore")) {
+                LNE_Rogues_Mod.itemConfig.refresh();
+                WeaponRegister.itemsToRegister(LNE_Rogues_Mod.itemConfig.value.weapons)
+                        .forEach(helper::register);
+                LNE_Rogues_Mod.itemConfig.save();
+            }
+        });
     }
 }

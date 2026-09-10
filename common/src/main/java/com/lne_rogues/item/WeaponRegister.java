@@ -78,7 +78,15 @@ public class WeaponRegister {
     private static final float glaiveAttackDamage = 9.3F;
     private static final float doubleAxeAttackDamage = 11.0F;
 
-    public static void register(Map<String, WeaponConfig> configs) {
+    private static boolean conditionalEntriesCreated = false;
+
+    /// The conditional entry building that `register` used to do inline. Idempotent: the Forge path
+    /// and the Fabric path must not both append to `entries`.
+    public static void createConditionalEntries() {
+        if (conditionalEntriesCreated) {
+            return;
+        }
+        conditionalEntriesCreated = true;
         if (!tweaksConfig.value.disable_special_lne_weapons) {
             dagger("ender_dragon_dagger",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(Items.AMETHYST_SHARD)), daggerAttackDamage)
@@ -162,6 +170,16 @@ public class WeaponRegister {
                     .attribute(AttributeModifier.bonus(SpellSchools.FROST.id, weaponSpellPower));
         }
         entries.forEach(entry -> entry.rarity = Rarity.RARE);
+    }
+
+    /// Creation half for Forge: the same items `register` writes, keyed by registration id.
+    public static Map<Identifier, Item> itemsToRegister(Map<String, WeaponConfig> configs) {
+        createConditionalEntries();
+        return Weapon.itemsToRegister(configs, entries, LootNExploreCompat.itemGroupKey());
+    }
+
+    public static void register(Map<String, WeaponConfig> configs) {
+        createConditionalEntries();
         Weapon.register(configs, entries, LootNExploreCompat.itemGroupKey());
     }
 }

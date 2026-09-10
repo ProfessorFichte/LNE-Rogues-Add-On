@@ -1,5 +1,7 @@
 package com.lne_rogues.effect;
 
+import java.util.Map;
+import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.util.Identifier;
 import net.spell_engine.rpg_series.config.ConfigFile;
@@ -31,10 +33,23 @@ public class LNERogues_Effects {
             EffectConfig.EMPTY
     ));
 
-    public static void register(ConfigFile.Effects config) {
+    /// Behaviour attachment, split out of `register` so the Forge path can run it before its own
+    /// registration loop. Operates on the raw effect, so it does not need the registry.
+    public static void configureBehaviours() {
         for (var entry : entries) {
             Synchronized.configure(entry.effect, true);
         }
+    }
+
+    /// Creation half for Forge: the same content `register` writes, keyed by registration id.
+    /// Nothing in this mod reads `Effects.Entry#entry`, so there is no link step.
+    public static Map<Identifier, StatusEffect> effectsToRegister(ConfigFile.Effects config) {
+        configureBehaviours();
+        return Effects.effectsToRegister(entries, config.effects);
+    }
+
+    public static void register(ConfigFile.Effects config) {
+        configureBehaviours();
 
         Effects.register(entries, config.effects);
     }
