@@ -16,8 +16,6 @@ repositories {
         }
     }
     maven { url 'https://maven.fabricmc.net' }
-
-    mavenLocal()
 }
 
 dependencies {
@@ -35,13 +33,13 @@ dependencies {
     modImplementation("maven.modrinth:tiny-config:${rootProject.tiny_config_version}-${platform}") { transitive = false }
     modImplementation("maven.modrinth:spell-power:${rootProject.spell_power_version}-${platform}") { transitive = false }
     modImplementation("maven.modrinth:spell-engine:${rootProject.spell_engine_version}-${platform}") { transitive = false }
-    // More-RPG-Library stays on mavenLocal: Fichte's Modrinth project has no 1.20.1 release of this
-    // line. Becomes maven.modrinth:more-rpg-library:<version>-<platform> once Fichte publishes it.
-    modImplementation("net.more_rpg_classes:more_rpg_library-${platform}:${rootProject.more_rpg_library_version}") { transitive = false }
+    // More-RPG-Library: resolves once Fichte's release tier 1 publishes it on Modrinth.
+    modImplementation("maven.modrinth:more-rpg-library:${rootProject.more_rpg_library_version}-${platform}") { transitive = false }
 
     // Loot & Explore is FABRIC ONLY on both game versions - there is no Forge build to depend on.
     // `modCompileOnly` so it never reaches a platform module's runtime classpath by accident; the
     // single compile-time reference (`more_rpg_loot.item.Group.RPG_LOOT_KEY`) is isolated in
     // com.lne_rogues.compat.LootNExploreCompat and only touched behind an isModLoaded() check.
-    modCompileOnly("com.example:Loot-N-Explore:${rootProject.loot_n_explore_version}") { transitive = false }
+    // Resolves once Fichte's release tier 2 publishes it on Modrinth.
+    modCompileOnly("maven.modrinth:loot-n-explore:${rootProject.loot_n_explore_version}") { transitive = false }
 }

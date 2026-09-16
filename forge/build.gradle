@@ -69,8 +69,6 @@ repositories {
     maven { url 'https://maven.fabricmc.net' }
     // Curios (Forge accessory slots), pulled in by SpellEngine's Forge artifact
     maven { url 'https://maven.theillusivec4.top/' }
-
-    mavenLocal()
 }
 
 dependencies {
@@ -84,9 +82,8 @@ dependencies {
     modImplementation("maven.modrinth:tiny-config:${rootProject.tiny_config_version}-${platform}") { transitive = false }
     modImplementation("maven.modrinth:spell-power:${rootProject.spell_power_version}-${platform}") { transitive = false }
     modImplementation("maven.modrinth:spell-engine:${rootProject.spell_engine_version}-${platform}") { transitive = false }
-    // More-RPG-Library stays on mavenLocal: Fichte's Modrinth project has no 1.20.1 release of this
-    // line. Becomes maven.modrinth:more-rpg-library:<version>-<platform> once Fichte publishes it.
-    modImplementation("net.more_rpg_classes:more_rpg_library-${platform}:${rootProject.more_rpg_library_version}") { transitive = false }
+    // More-RPG-Library: resolves once Fichte's release tier 1 publishes it on Modrinth.
+    modImplementation("maven.modrinth:more-rpg-library:${rootProject.more_rpg_library_version}-${platform}") { transitive = false }
 
     // NO Loot & Explore here: it is Fabric-only. This module is the proof that the
     // LootNExploreCompat guard keeps `common` loadable without it.
