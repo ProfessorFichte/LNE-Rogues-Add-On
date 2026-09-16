@@ -92,7 +92,7 @@ dependencies {
     // LootNExploreCompat guard keeps `common` loadable without it.
 
     // Rogues itself: no Java reference, but this mod extends its content.
-    modLocalRuntime("net.rpg_series:rogues-${platform}:${rootProject.rogues_version}") { transitive = false }
+    modLocalRuntime("maven.modrinth:rogues-and-warriors:${rootProject.rogues_version}-${platform}") { transitive = false }
     // Hard runtime dependency of Rogues (village barracks injection / armor sets).
     modLocalRuntime("maven.modrinth:structure-pool-api:${rootProject.structure_pool_api_version}-${platform}") { transitive = false }
     modLocalRuntime("maven.modrinth:armor-model-api:${rootProject.armor_model_api_version}-${platform}") { transitive = false }

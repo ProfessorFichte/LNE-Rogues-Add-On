@@ -94,7 +94,7 @@ dependencies {
 
     // Rogues itself: no Java reference, but the recipes transform its netherite weapons and the item
     // models inherit `rogues:item/base/*`. Datagen needs its items in the registry.
-    modLocalRuntime("net.rpg_series:rogues-${platform}:${rootProject.rogues_version}") { transitive = false }
+    modLocalRuntime("maven.modrinth:rogues-and-warriors:${rootProject.rogues_version}-${platform}") { transitive = false }
     // Hard runtime dependency of both Rogues and Loot & Explore.
     modLocalRuntime("maven.modrinth:structure-pool-api:${rootProject.structure_pool_api_version}-${platform}") { transitive = false }
     // Hard runtime dependency of Rogues (its armor sets).
