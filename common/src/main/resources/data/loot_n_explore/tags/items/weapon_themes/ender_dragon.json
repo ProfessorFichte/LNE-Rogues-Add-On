@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "lne_rogues:ender_dragon_dagger",
+      "required": false
+    },
+    {
+      "id": "lne_rogues:ender_dragon_double_axe",
+      "required": false
+    },
+    {
+      "id": "lne_rogues:ender_dragon_glaive",
+      "required": false
+    },
+    {
+      "id": "lne_rogues:ender_dragon_sickle",
+      "required": false
+    }
+  ]
+}

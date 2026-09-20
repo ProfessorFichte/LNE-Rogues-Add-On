@@ -1,0 +1,33 @@
+architectury {
+    common rootProject.enabled_platforms.split(',')
+}
+
+def platform = "fabric";
+
+repositories {
+    maven { url 'https://maven.kosmx.dev/' }
+    maven { url 'https://maven.shedaniel.me/' }
+    maven {
+        name = 'Modrinth'
+        url = 'https://api.modrinth.com/maven'
+        content {
+            includeGroup 'maven.modrinth'
+        }
+    }
+    maven { url 'https://maven.fabricmc.net' }
+}
+
+dependencies {
+    modImplementation "net.fabricmc:fabric-loader:$rootProject.fabric_loader_version"
+
+    // Don't add transitive = false here, cloth-config is what puts Fabric API on the remap classpath.
+    // Without it runDatagen crashes with a NoSuchMethodError.
+    modImplementation("me.shedaniel.cloth:cloth-config-${platform}:${rootProject.cloth_config_version}")
+
+    modImplementation("maven.modrinth:tiny-config:${rootProject.tiny_config_version}-${platform}") { transitive = false }
+    modImplementation("maven.modrinth:spell-power:${rootProject.spell_power_version}-${platform}") { transitive = false }
+    modImplementation("maven.modrinth:spell-engine:${rootProject.spell_engine_version}-${platform}") { transitive = false }
+    modImplementation("maven.modrinth:more-rpg-library:${rootProject.more_rpg_library_version}-${platform}") { transitive = false }
+
+    modCompileOnly("maven.modrinth:loot-n-explore:${rootProject.loot_n_explore_version}") { transitive = false }
+}

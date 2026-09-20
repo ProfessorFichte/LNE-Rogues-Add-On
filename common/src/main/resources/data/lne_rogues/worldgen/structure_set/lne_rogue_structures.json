@@ -1,0 +1,38 @@
+{
+  "placement": {
+    "exclusion_zone": {
+      "other_set": "minecraft:villages",
+      "chunk_count": 12
+    },
+    "type": "minecraft:random_spread",
+    "salt": 12327675,
+    "separation": 15,
+    "spacing": 30
+  },
+  "structures": [
+    {
+      "structure": "lne_rogues:rogue_desert_treasure",
+      "weight": 5
+    },
+    {
+      "structure": "lne_rogues:rogue_badlands_treasure",
+      "weight": 5
+    },
+    {
+      "structure": "lne_rogues:warrior_outpost",
+      "weight": 5
+    },
+    {
+      "structure": "lne_rogues:warrior_turret",
+      "weight": 3
+    },
+    {
+      "structure": "lne_rogues:rogue_hideout",
+      "weight": 3
+    },
+    {
+      "structure": "lne_rogues:thiefs_guild",
+      "weight": 1
+    }
+  ]
+}

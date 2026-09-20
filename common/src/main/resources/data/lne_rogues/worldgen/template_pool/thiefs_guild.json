@@ -1,0 +1,15 @@
+{
+  "name": "lne_rogues:thiefs_guild",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "lne_rogues:thiefs_guild/base_0",
+        "projection": "rigid",
+        "processors": "minecraft:empty"
+      }
+    }
+  ]
+}

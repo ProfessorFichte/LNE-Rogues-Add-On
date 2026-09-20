@@ -1,0 +1,48 @@
+modLoader = "javafml"
+loaderVersion = "[47,)"
+license = "ARR"
+
+[[mods]]
+modId = "lne_rogues"
+version = "${version}"
+displayName = "LNE Rogues"
+authors = "Fichte"
+description = '''
+Loot & Explore Add-On with Rogues RPG-Series Content.
+'''
+logoFile = "icon.png"
+
+[[dependencies.lne_rogues]]
+modId = "forge"
+mandatory = true
+versionRange = "[47,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.lne_rogues]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.20.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.lne_rogues]]
+modId = "spell_engine"
+mandatory = true
+versionRange = "[1.10.5,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.lne_rogues]]
+modId = "rogues"
+mandatory = true
+versionRange = "[3.1.1,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.lne_rogues]]
+modId = "more_rpg_classes"
+mandatory = true
+versionRange = "[2.7.2,)"
+ordering = "AFTER"
+side = "BOTH"

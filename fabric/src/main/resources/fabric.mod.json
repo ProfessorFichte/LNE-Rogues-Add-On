@@ -1,0 +1,38 @@
+{
+	"schemaVersion": 1,
+	"id": "lne_rogues",
+	"version": "${version}",
+	"name": "L&E Rogues-Add On",
+	"description": "Loot & Explore Add-On with Rogues RPG-Series Content.",
+	"authors": [
+		"Fichte"
+	],
+	"contact": {
+		"sources": "https://github.com/ProfessorFichte/LNE-Wizards-Add-On"
+	},
+	"license": "ARR",
+	"icon": "icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+          "com.lne_rogues.fabric.FabricMod"
+		],
+		"client": [
+			"com.lne_rogues.fabric.client.FabricClient"
+		],
+		"fabric-datagen": [
+			"com.lne_rogues.Lne_roguesDataGenerator"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.14.21",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*",
+		"spell_engine": ">=1.10.5",
+		"rogues": ">=3.1.1"
+	},
+	"suggests": {
+		"loot_n_explore": "*"
+	}
+}
