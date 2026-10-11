@@ -33,9 +33,10 @@
 		"java": ">=17",
 		"fabric-api": "*",
 		"spell_engine": ">=${spell_engine_version}",
-		"rogues": ">=${rogues_version}"
+		"rogues": ">=${rogues_version}",
+		"mrpg_lib": ">=${more_rpg_library_version}"
 	},
 	"suggests": {
-		"loot_n_explore": ">=1.0.2-1.21.1"
+		"loot_n_explore": ">=1.0.24-1.21.1"
 	}
 }

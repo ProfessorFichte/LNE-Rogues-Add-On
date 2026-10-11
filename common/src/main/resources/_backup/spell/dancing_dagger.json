@@ -6,13 +6,13 @@
     "scroll": {},
     "cast": {
       "duration": 0.5,
-      "animation": "more_rpg_classes:dagger_throw_charge",
+      "animation": "mrpg_lib:dagger_throw_charge",
       "particles": [ ]
     }
   },
 
   "release": {
-    "animation": "more_rpg_classes:dagger_throw_release",
+    "animation": "mrpg_lib:dagger_throw_release",
     "sound": {
       "id": "rogues:throw"
     }
@@ -63,7 +63,7 @@
       "action": {
         "type": "STATUS_EFFECT",
         "status_effect": {
-          "effect_id": "more_rpg_classes:grievous_wounds",
+          "effect_id": "mrpg_lib:grievous_wounds",
           "duration": 5,
           "apply_mode": "SET",
           "amplifier_power_multiplier": 0.1,

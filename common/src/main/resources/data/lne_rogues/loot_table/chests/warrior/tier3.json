@@ -395,7 +395,7 @@
           "name": "spell_engine:spell_scroll",
           "functions": [
             {
-              "function": "more_rpg_classes:specific_spell_scroll_pool",
+              "function": "mrpg_lib:specific_spell_scroll_pool",
               "spell_pools": ["#rogues:spell_scroll/warrior"],
               "spell_tier_min": 2,
               "spell_tier_max": 3,
@@ -417,35 +417,35 @@
           "weight": 8
         },
         {
-          "type": "more_rpg_classes:conditional_item",
+          "type": "mrpg_lib:conditional_item",
           "item": "jewelry:sapphire_ring"
         },
         {
-          "type": "more_rpg_classes:conditional_item",
+          "type": "mrpg_lib:conditional_item",
           "item": "jewelry:sapphire_necklace"
         },
         {
-          "type": "more_rpg_classes:conditional_item",
+          "type": "mrpg_lib:conditional_item",
           "item": "jewelry:ruby_ring"
         },
         {
-          "type": "more_rpg_classes:conditional_item",
+          "type": "mrpg_lib:conditional_item",
           "item": "jewelry:ruby_necklace"
         },
         {
-          "type": "more_rpg_classes:conditional_item",
+          "type": "mrpg_lib:conditional_item",
           "item": "relics_rpgs:lesser_melee_crit_damage"
         },
         {
-          "type": "more_rpg_classes:conditional_item",
+          "type": "mrpg_lib:conditional_item",
           "item": "relics_rpgs:lesser_use_damage"
         },
         {
-          "type": "more_rpg_classes:conditional_item",
+          "type": "mrpg_lib:conditional_item",
           "item": "loot_n_explore:malt_extract"
         },
         {
-          "type": "more_rpg_classes:conditional_item",
+          "type": "mrpg_lib:conditional_item",
           "item": "loot_n_explore:beet_rootbeer"
         }
       ]
@@ -467,7 +467,7 @@
           "name": "spell_engine:spell_scroll",
           "functions": [
             {
-              "function": "more_rpg_classes:specific_spell_scroll_pool",
+              "function": "mrpg_lib:specific_spell_scroll_pool",
               "spell_pools": ["#archers_expansion:spell_scroll/war_archer"],
               "spell_tier_min": 2,
               "spell_tier_max": 3,
@@ -476,7 +476,7 @@
           ]
         },
         {
-          "type": "more_rpg_classes:conditional_item",
+          "type": "mrpg_lib:conditional_item",
           "item": "archers:composite_longbow",
           "weight": 3,
           "functions": [
@@ -497,7 +497,7 @@
           ]
         },
         {
-          "type": "more_rpg_classes:conditional_item",
+          "type": "mrpg_lib:conditional_item",
           "item": "archers:heavy_crossbow",
           "weight": 2,
           "functions": [
@@ -518,7 +518,7 @@
           ]
         },
         {
-          "type": "more_rpg_classes:conditional_item",
+          "type": "mrpg_lib:conditional_item",
           "item": "archers_expansion:war_archer_head",
           "weight": 1,
           "functions": [
@@ -539,7 +539,7 @@
           ]
         },
         {
-          "type": "more_rpg_classes:conditional_item",
+          "type": "mrpg_lib:conditional_item",
           "item": "archers_expansion:war_archer_chest",
           "weight": 1,
           "functions": [
@@ -560,7 +560,7 @@
           ]
         },
         {
-          "type": "more_rpg_classes:conditional_item",
+          "type": "mrpg_lib:conditional_item",
           "item": "archers_expansion:war_archer_legs",
           "weight": 1,
           "functions": [
@@ -581,7 +581,7 @@
           ]
         },
         {
-          "type": "more_rpg_classes:conditional_item",
+          "type": "mrpg_lib:conditional_item",
           "item": "archers_expansion:war_archer_feet",
           "weight": 1,
           "functions": [

@@ -91,10 +91,10 @@ public class RoguesSpells {
 
         spell.active.cast = new Spell.Active.Cast();
         spell.active.cast.duration = 0.5F;
-        spell.active.cast.animation = PlayerAnimation.of("more_rpg_classes:dagger_throw_charge");
+        spell.active.cast.animation = PlayerAnimation.of("mrpg_lib:dagger_throw_charge");
         spell.active.cast.particles = List.of();
 
-        spell.release.animation = PlayerAnimation.of("more_rpg_classes:dagger_throw_release");
+        spell.release.animation = PlayerAnimation.of("mrpg_lib:dagger_throw_release");
         spell.release.sound = new Sound(Identifier.of("rogues:throw"));
 
         spell.deliver = new Spell.Delivery();
@@ -122,7 +122,7 @@ public class RoguesSpells {
         var damage = SpellBuilder.Impacts.damage(1.2F);
         damage.sound = new Sound(Identifier.of("rogues:throw_impact"));
 
-        var grievousWounds = SpellBuilder.Impacts.effectSet("more_rpg_classes:grievous_wounds", 5.0F, 0);
+        var grievousWounds = SpellBuilder.Impacts.effectSet("mrpg_lib:grievous_wounds", 5.0F, 0);
         grievousWounds.action.status_effect.amplifier_power_multiplier = 0.1F;
         grievousWounds.action.status_effect.show_particles = false;
         grievousWounds.visuals = Fx.Visuals.of(

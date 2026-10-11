@@ -247,7 +247,7 @@
           "name": "spell_engine:spell_scroll",
           "functions": [
             {
-              "function": "more_rpg_classes:specific_spell_scroll_pool",
+              "function": "mrpg_lib:specific_spell_scroll_pool",
               "spell_pools": ["#rogues:spell_scroll/warrior"],
               "spell_tier_min": 3,
               "spell_tier_max": 5,
@@ -274,7 +274,7 @@
           "name": "spell_engine:spell_scroll",
           "functions": [
             {
-              "function": "more_rpg_classes:specific_spell_scroll_pool",
+              "function": "mrpg_lib:specific_spell_scroll_pool",
               "spell_pools": ["#archers_expansion:spell_scroll/war_archer"],
               "spell_tier_min": 3,
               "spell_tier_max": 5,
@@ -283,31 +283,31 @@
           ]
         },
         {
-          "type": "more_rpg_classes:conditional_item",
+          "type": "mrpg_lib:conditional_item",
           "item": "jewelry:netherite_sapphire_ring"
         },
         {
-          "type": "more_rpg_classes:conditional_item",
+          "type": "mrpg_lib:conditional_item",
           "item": "jewelry:netherite_sapphire_necklace"
         },
         {
-          "type": "more_rpg_classes:conditional_item",
+          "type": "mrpg_lib:conditional_item",
           "item": "jewelry:netherite_ruby_ring"
         },
         {
-          "type": "more_rpg_classes:conditional_item",
+          "type": "mrpg_lib:conditional_item",
           "item": "jewelry:netherite_ruby_necklace"
         },
         {
-          "type": "more_rpg_classes:conditional_item",
+          "type": "mrpg_lib:conditional_item",
           "item": "relics_rpgs:medium_proc_attack_damage"
         },
         {
-          "type": "more_rpg_classes:conditional_item",
+          "type": "mrpg_lib:conditional_item",
           "item": "relics_rpgs:medium_proc_defense"
         },
         {
-          "type": "more_rpg_classes:conditional_item",
+          "type": "mrpg_lib:conditional_item",
           "item": "loot_n_explore:vital_drink"
         }
       ]
@@ -324,7 +324,7 @@
           "weight": 4
         },
         {
-          "type": "more_rpg_classes:conditional_item",
+          "type": "mrpg_lib:conditional_item",
           "item": "archers:heavy_crossbow",
           "weight": 2,
           "functions": [
@@ -345,7 +345,7 @@
           ]
         },
         {
-          "type": "more_rpg_classes:conditional_item",
+          "type": "mrpg_lib:conditional_item",
           "item": "archers_expansion:war_archer_head",
           "weight": 1,
           "functions": [
@@ -366,7 +366,7 @@
           ]
         },
         {
-          "type": "more_rpg_classes:conditional_item",
+          "type": "mrpg_lib:conditional_item",
           "item": "archers_expansion:war_archer_chest",
           "weight": 1,
           "functions": [
@@ -387,7 +387,7 @@
           ]
         },
         {
-          "type": "more_rpg_classes:conditional_item",
+          "type": "mrpg_lib:conditional_item",
           "item": "archers_expansion:war_archer_legs",
           "weight": 1,
           "functions": [
@@ -408,7 +408,7 @@
           ]
         },
         {
-          "type": "more_rpg_classes:conditional_item",
+          "type": "mrpg_lib:conditional_item",
           "item": "archers_expansion:war_archer_feet",
           "weight": 1,
           "functions": [
