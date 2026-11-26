@@ -1,12 +1,11 @@
 {
-  "replace": false,
   "values": [
     {
       "id": "lne_rogues:wither_dagger",
       "required": false
     },
     {
-      "id": "lne_rogues:wither_double_axe",
+      "id": "lne_rogues:wither_sickle",
       "required": false
     },
     {
@@ -14,7 +13,7 @@
       "required": false
     },
     {
-      "id": "lne_rogues:wither_sickle",
+      "id": "lne_rogues:wither_double_axe",
       "required": false
     }
   ]

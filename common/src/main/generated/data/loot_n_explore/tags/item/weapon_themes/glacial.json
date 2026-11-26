@@ -1,12 +1,11 @@
 {
-  "replace": false,
   "values": [
     {
       "id": "lne_rogues:glacial_dagger",
       "required": false
     },
     {
-      "id": "lne_rogues:glacial_double_axe",
+      "id": "lne_rogues:glacial_sickle",
       "required": false
     },
     {
@@ -14,7 +13,7 @@
       "required": false
     },
     {
-      "id": "lne_rogues:glacial_sickle",
+      "id": "lne_rogues:glacial_double_axe",
       "required": false
     }
   ]

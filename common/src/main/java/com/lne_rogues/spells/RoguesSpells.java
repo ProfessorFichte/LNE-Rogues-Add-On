@@ -2,7 +2,9 @@ package com.lne_rogues.spells;
 
 import com.lne_rogues.LNE_Rogues_Mod;
 import com.lne_rogues.effect.LNERogues_Effects;
+import com.mrpg_lib.effect.MRPGCEffects;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.spell_engine.api.datagen.SpellBuilder;
 import net.spell_engine.api.spell.ExternalSpellSchools;
@@ -15,6 +17,7 @@ import net.spell_engine.api.spell.fx.Sound;
 import net.spell_engine.api.spell.tooltip.TooltipTokens;
 import net.spell_engine.client.util.Color;
 import net.spell_engine.fx.SpellEngineParticles;
+import net.rogues.util.RogueSounds;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,7 +51,7 @@ public class RoguesSpells {
         spell.active.cast.duration = 0.0F;
 
         spell.release.animation = PlayerAnimation.of("spell_engine:one_handed_area_release");
-        spell.release.sound = Sound.withVolume(Identifier.of("entity.player.breath"), 1.5F);
+        spell.release.sound = Sound.withVolume(SoundEvents.ENTITY_PLAYER_BREATH.getId(), 1.5F);
         var risingStripes = ParticleGroupBuilder
                 .magic(SpellEngineParticles.magic_stripe, ParticleGroup.Motion.FLOAT, Color.RAGE)
                 .batch(b -> b.shape(ParticleGroup.Shape.PILLAR)
@@ -95,7 +98,7 @@ public class RoguesSpells {
         spell.active.cast.particles = List.of();
 
         spell.release.animation = PlayerAnimation.of("mrpg_lib:dagger_throw_release");
-        spell.release.sound = new Sound(Identifier.of("rogues:throw"));
+        spell.release.sound = new Sound(RogueSounds.THROW.id());
 
         spell.deliver = new Spell.Delivery();
         spell.deliver.type = Spell.Delivery.Type.PROJECTILE;
@@ -111,7 +114,7 @@ public class RoguesSpells {
         spell.deliver.projectile.projectile.perks.ricochet_range = 16.0F;
 
         spell.deliver.projectile.projectile.travel_sound_interval = 8;
-        spell.deliver.projectile.projectile.travel_sound = new Sound(Identifier.of("rogues:throw"));
+        spell.deliver.projectile.projectile.travel_sound = new Sound(RogueSounds.THROW.id());
 
         spell.deliver.projectile.projectile.client_data = new Spell.ProjectileData.Client();
         spell.deliver.projectile.projectile.client_data.travel_particles = List.of();
@@ -120,9 +123,9 @@ public class RoguesSpells {
         spell.deliver.projectile.projectile.client_data.composite_model = SpellBuilder.ProjectileModels.composite(daggerModel);
 
         var damage = SpellBuilder.Impacts.damage(1.2F);
-        damage.sound = new Sound(Identifier.of("rogues:throw_impact"));
+        damage.sound = new Sound(RogueSounds.THROW_IMPACT.id());
 
-        var grievousWounds = SpellBuilder.Impacts.effectSet("mrpg_lib:grievous_wounds", 5.0F, 0);
+        var grievousWounds = SpellBuilder.Impacts.effectSet(MRPGCEffects.GRIEVOUS_WOUNDS.id.toString(), 5.0F, 0);
         grievousWounds.action.status_effect.amplifier_power_multiplier = 0.1F;
         grievousWounds.action.status_effect.show_particles = false;
         grievousWounds.visuals = Fx.Visuals.of(

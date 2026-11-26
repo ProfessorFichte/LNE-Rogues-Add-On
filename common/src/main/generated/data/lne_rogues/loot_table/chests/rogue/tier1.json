@@ -2,127 +2,135 @@
   "type": "minecraft:chest",
   "pools": [
     {
-      "rolls": {
-        "type": "minecraft:uniform",
-        "min": 1,
-        "max": 2
-      },
+      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 4.0,
+                "min": 2.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
           "name": "minecraft:stick",
-          "weight": 5,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 2,
-                "max": 4
-              }
-            }
-          ],
-          "conditions": []
+          "weight": 5
         },
         {
           "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 8.0,
+                "min": 4.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
           "name": "minecraft:leather",
-          "weight": 5,
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
           "functions": [
             {
-              "function": "minecraft:set_count",
+              "add": false,
               "count": {
-                "min": 4,
-                "max": 8
-              }
+                "type": "minecraft:uniform",
+                "max": 6.0,
+                "min": 2.0
+              },
+              "function": "minecraft:set_count"
             }
           ],
-          "conditions": []
-        },
-        {
-          "type": "minecraft:item",
           "name": "minecraft:white_wool",
-          "weight": 5,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 2,
-                "max": 6
-              }
-            }
-          ]
+          "weight": 5
         },
         {
           "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 5.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
           "name": "minecraft:flint",
-          "weight": 4,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 1,
-                "max": 5
-              }
-            }
-          ]
+          "weight": 4
         },
         {
           "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 6.0,
+                "min": 2.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
           "name": "minecraft:gold_nugget",
-          "weight": 4,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 2,
-                "max": 6
-              }
-            }
-          ]
+          "weight": 4
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:lapis_lazuli",
-          "weight": 3,
           "functions": [
             {
-              "function": "minecraft:set_count",
+              "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "min": 1,
-                "max": 2
-              }
+                "max": 2.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
             }
-          ]
+          ],
+          "name": "minecraft:lapis_lazuli",
+          "weight": 3
         },
         {
           "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 2.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
           "name": "minecraft:iron_ingot",
-          "weight": 2,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 2
-              }
-            }
-          ]
+          "weight": 2
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:gold_ingot",
-          "weight": 2,
           "functions": [
             {
-              "function": "minecraft:set_count",
+              "add": false,
               "count": {
-                "min": 1,
-                "max": 2
-              }
+                "type": "minecraft:uniform",
+                "max": 2.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
             }
-          ]
+          ],
+          "name": "minecraft:gold_ingot",
+          "weight": 2
         },
         {
           "type": "minecraft:item",
@@ -136,22 +144,21 @@
         },
         {
           "type": "minecraft:item",
-          "name": "rogues:iron_dagger",
-          "weight": 1
+          "name": "rogues:iron_dagger"
         },
         {
           "type": "minecraft:item",
-          "name": "rogues:iron_sickle",
-          "weight": 1
+          "name": "rogues:iron_sickle"
         }
-      ]
-    },
-    {
+      ],
       "rolls": {
         "type": "minecraft:uniform",
-        "min": 1,
-        "max": 1
-      },
+        "max": 2.0,
+        "min": 1.0
+      }
+    },
+    {
+      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:empty",
@@ -159,26 +166,29 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 1,
-          "name": "spell_engine:spell_scroll",
           "functions": [
             {
+              "blacklist_spells": [],
+              "count": 1.0,
               "function": "mrpg_lib:specific_spell_scroll_pool",
-              "spell_pools": ["#rogues:spell_scroll/rogue"],
-              "spell_tier_min": 2,
-              "spell_tier_max": 2,
-              "count": 1
+              "spell_pools": [
+                "#rogues:spell_scroll/rogue"
+              ],
+              "spell_tier_max": 2.0,
+              "spell_tier_min": 2.0
             }
-          ]
+          ],
+          "name": "spell_engine:spell_scroll"
         }
-      ]
-    },
-    {
+      ],
       "rolls": {
         "type": "minecraft:uniform",
-        "min": 1,
-        "max": 1
-      },
+        "max": 1.0,
+        "min": 1.0
+      }
+    },
+    {
+      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:empty",
@@ -212,14 +222,15 @@
           "type": "mrpg_lib:conditional_item",
           "item": "loot_n_explore:potato_soup"
         }
-      ]
-    },
-    {
+      ],
       "rolls": {
         "type": "minecraft:uniform",
-        "min": 1,
-        "max": 1
-      },
+        "max": 1.0,
+        "min": 1.0
+      }
+    },
+    {
+      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:empty",
@@ -227,19 +238,26 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 1,
-          "name": "spell_engine:spell_scroll",
           "functions": [
             {
+              "blacklist_spells": [],
+              "count": 1.0,
               "function": "mrpg_lib:specific_spell_scroll_pool",
-              "spell_pools": ["#archers_expansion:spell_scroll/deadeye"],
-              "spell_tier_min": 2,
-              "spell_tier_max": 2,
-              "count": 1
+              "spell_pools": [
+                "#archers_expansion:spell_scroll/deadeye"
+              ],
+              "spell_tier_max": 2.0,
+              "spell_tier_min": 2.0
             }
-          ]
+          ],
+          "name": "spell_engine:spell_scroll"
         }
-      ]
+      ],
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 1.0,
+        "min": 1.0
+      }
     }
   ]
 }
