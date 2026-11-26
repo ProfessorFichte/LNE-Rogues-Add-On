@@ -37,7 +37,7 @@ public class LNE_Rogues_Mod{
 
 	}
 	public static void registerItems(){
-		if(Platform.util().isModLoaded("loot_n_explore")) {
+		if(Platform.util().isModLoaded("loot_n_explore") || System.getProperty("fabric-api.datagen") != null) {
 			itemConfig.refresh();
 			WeaponRegister.register(itemConfig.value.weapons);
 			itemConfig.save();
